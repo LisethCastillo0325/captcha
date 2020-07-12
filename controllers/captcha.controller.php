@@ -4,15 +4,32 @@ class CaptchaController extends Controller{
     function __construct()
     {
         parent::__construct();
-        $this->view->render('captcha/index');
+        //
+        $this->loadModel('captcha');
     }
 
     public function listar(){
-        echo "<br><b>funcion listar</b>";
+
+        $resultado = $this->model->listarTodos();
+
+        $this->view->resultado = $resultado;
+
+        $this->view->render('captcha/index');
     }
 
     public function crear(){
-        echo "<br><b>funcion crear</b>";
+        $this->view->render('captcha/crear');
+
+    }
+
+    public function editar($id){
+        echo "<br><b>funcion crear captcha--</b>".$id;
+
+
+
+
+        $this->view->render('captcha/editar');
+
     }
 
 }

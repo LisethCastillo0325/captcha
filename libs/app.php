@@ -16,11 +16,19 @@ class App{
             require_once($archivoController);
             $nombreController = ucwords(str_replace(".", "", $nombreController));
             $controller = new $nombreController();
-            
+
+
             if(isset($url[1])){
-                $nombreFunction = $url[1]; 
+                $nombreFunction = $url[1];
+                $idCaptcha      = $url[2];
+
                 if(method_exists($controller, $nombreFunction)){
-                    $controller->$nombreFunction();
+
+                    if($nombreFunction == 'editar'){
+                        $controller->$nombreFunction($idCaptcha);
+                    }else{
+                        $controller->$nombreFunction();
+                    }
                 }else{
                     $controller = new ErrorsController();
                 }

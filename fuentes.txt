@@ -4,3 +4,9 @@ https://www.youtube.com/watch?v=aBLyQukhqv0&list=PLvRPaExkZHFmUFB1dx1RbC4_mxpgQw
 
 Para obtener la url absoluta
 https://cybmeta.com/como-obtener-la-url-actual-en-php
+
+// CÓMO TRABAJAR CON GRANDES ARCHIVOS JSON USANDO PHP
+https://academy.leewayweb.com/como-trabajar-con-grandes-archivos-json-usando-php/
+
+// EJEMPLO PHP: CREAR Y LEER ARCHIVO .JSON
+https://ejemplocodigo.com/ejemplo-php-crear-y-leer-archivo-json/

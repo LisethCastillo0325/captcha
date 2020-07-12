@@ -3,10 +3,11 @@
     "captchas": [
         {
             "titulo": "The Avengers",
-            "codigo": "1235-4568-XZWK",
+            "captcha": "1235-4568-XZWK",
             "fechaCreacion": "2020-07-11",
-            "cantidadVisitas": 20,
-            "cantidadPaises": 2,
+            "cantidadVisitas": 15,
+            "cantidadPaises": 3,
+            "urlCliente": "wwww.youtube.com",
             "links": [
                 {
                     "linkUno": ["wwww.google.com","wwww.youtube.com", "wwww.facebook.com"],
@@ -73,6 +74,7 @@
             "fechaCreacion": "2020-07-11",
             "cantidadVisitas": 20,
             "cantidadPaises": 2,
+            "urlCliente": "wwww.google.com",
             "links": [
                 {
                     "linkUno": ["wwww.google.com","wwww.youtube.com", "wwww.facebook.com"],

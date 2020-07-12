@@ -19,17 +19,14 @@ class CaptchaController extends Controller{
 
     public function crear(){
         $this->view->render('captcha/crear');
-
     }
 
     public function editar($id){
-        echo "<br><b>funcion crear captcha--</b>".$id;
-
-
-
-
         $this->view->render('captcha/editar');
+    }
 
+    public function detalle($id){
+        $this->view->render('captcha/detalle');
     }
 
 }

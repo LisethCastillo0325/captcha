@@ -81,16 +81,19 @@
                                                         <tr>
                                                             <th scope="col" class="text-center">Id</th>
                                                             <th scope="col" class="text-center">Direccion Ip</th>
+                                                            <th scope="col" class="text-center">Fecha - Hora</th>
+
                                                         </tr>
                                                         </thead>
                                                         <tbody>
                                                         <?php
 
                                                         $id_ip=1;
-                                                        foreach ($datoCiudad['ipVisitas'] as $ip) {?>
+                                                        foreach ($datoCiudad['ipVisitas'] as $datoIp) {?>
                                                             <tr>
                                                                <td class="text-center"><?php echo $id_ip; ?></td>
-                                                               <td class="text-center"><?php echo $ip; ?> </td>
+                                                               <td class="text-center"><?php echo $datoIp['ip']; ?> </td>
+                                                               <td class="text-center"><?php echo $datoIp['fechaVisita']; ?> </td>
                                                             </tr>
                                                         <?php $id_ip++; } ?>
                                                         </tbody>

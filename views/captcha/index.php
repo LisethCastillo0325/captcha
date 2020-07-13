@@ -11,7 +11,7 @@
             <h3 class="titulo-tabla">Listado  de Captcha Generados </h3>
 
 
-            <table id="ejemplo" class="table table-striped table-bordered" style="width:100%">
+            <table id="ejemplo" class="table table-striped table-bordered table-responsive" style="width:100%">
                 <thead>
                 <tr>
                     <th>Fecha</th>

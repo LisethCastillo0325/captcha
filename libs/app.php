@@ -24,7 +24,7 @@ class App{
 
                 if(method_exists($controller, $nombreFunction)){
 
-                    if($nombreFunction == 'editar'){
+                    if(in_array($nombreFunction, array('editar', 'detalle', 'ver'))){
                         $controller->$nombreFunction($idCaptcha);
                     }else{
                         $controller->$nombreFunction();

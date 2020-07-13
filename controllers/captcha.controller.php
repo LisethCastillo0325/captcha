@@ -29,6 +29,11 @@ class CaptchaController extends Controller{
         $this->view->render('captcha/detalle');
     }
 
+    public function ver($id){
+        $this->view->id = $id;
+        $this->view->render('captcha/ver');
+    }
+
 }
 
 

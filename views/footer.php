@@ -22,6 +22,8 @@
 <script src='https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js'></script>
 <script src='https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js'></script>
 <script src="../public/js/table.js" type="text/javascript"></script>
+<script src="../public/js/custom.js" type="text/javascript"></script>
+
 </body>
 
 <!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

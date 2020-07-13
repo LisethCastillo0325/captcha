@@ -17,13 +17,11 @@ class App{
             $nombreController = ucwords(str_replace(".", "", $nombreController));
             $controller = new $nombreController();
 
-
             if(isset($url[1])){
                 $nombreFunction = $url[1];
                 $idCaptcha      = $url[2];
 
                 if(method_exists($controller, $nombreFunction)){
-
                     if(in_array($nombreFunction, array('editar', 'detalle', 'ver'))){
                         $controller->$nombreFunction($idCaptcha);
                     }else{

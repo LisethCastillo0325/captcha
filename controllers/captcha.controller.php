@@ -11,7 +11,6 @@ class CaptchaController extends Controller{
     public function listar(){
 
         $resultado = $this->model->listarTodos();
-
         $this->view->resultado = $resultado;
 
         $this->view->render('captcha/index');
@@ -26,6 +25,10 @@ class CaptchaController extends Controller{
     }
 
     public function detalle($id){
+        $resultado = $this->model->listarTodos();
+        $this->view->resultado = $resultado;
+        $this->view->captcha   = $id;
+
         $this->view->render('captcha/detalle');
     }
 

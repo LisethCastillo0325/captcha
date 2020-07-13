@@ -20,17 +20,11 @@ class CaptchaModel extends Model {
     }
 
     public function listarTodos(){
-
       return  $this->arrayJson;
-
-
     }
 
 
     public function editar(){
-
-
-
 
     }
 

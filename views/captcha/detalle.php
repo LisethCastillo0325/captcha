@@ -20,16 +20,16 @@
 
     <div class="row">
 
-        <div class="col-md-12" >
-
-            <h3 class="titulo-tabla">Detalle Captcha</h3>
-
-
-            <div class="col-6">
-                <h4 class="titulo-tabla">Titulo : <?php echo $datoCaptcha['titulo']; ?></h4>
+            <div class="col-12 mt-3 mb-2 offset-4">
+                <h3 class="titulo-tabla">Detalle Captcha</h3>
             </div>
-            <div class="col-6">
-                <h4 class="titulo-tabla">Captcha : : <?php echo $datoCaptcha['captcha']; ?> </h4>
+
+
+            <div class="col-6 mb-3">
+                <h4 class="">Titulo : <?php echo $datoCaptcha['titulo']; ?></h4>
+            </div>
+            <div class="col-6 mb-3">
+                <h4 class="">Captcha : : <?php echo $datoCaptcha['captcha']; ?> </h4>
             </div>
 
             <?php
@@ -109,14 +109,9 @@
 
                                 </td>
                         </tr>
-                        <?php
+                        <?php $id++; }?>
 
-                            echo "dddd--".$id;
-
-                            $id++;}?>
-
-                    <?php   echo "---idssss--".$id_tabla;
-                        $id_tabla++; }?>
+                    <?php  $id_tabla++; }?>
 
                     </tbody>
                 </table>
@@ -124,8 +119,6 @@
 
            <?php }?>
 
-
-        </div>
     </div>
 
     <!-- VENTANA MODAL -->

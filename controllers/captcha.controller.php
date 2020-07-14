@@ -4,15 +4,12 @@ class CaptchaController extends Controller{
     function __construct()
     {
         parent::__construct();
-        //
         $this->loadModel('captcha');
     }
 
     public function listar(){
-
         $resultado = $this->model->listarTodos();
         $this->view->resultado = $resultado;
-
         $this->view->render('captcha/index');
     }
 
@@ -37,11 +34,9 @@ class CaptchaController extends Controller{
         if(count($captcha) == 0){
             new ErrorsController('404');
         }else{
-            //var_dump($captcha['links']);
             $this->view->captcha = $captcha;
             $this->view->render('captcha/ver');
         }
-
     }
 
     public function apiObtenerLinksCaptcha($id){

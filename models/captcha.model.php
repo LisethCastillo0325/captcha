@@ -30,8 +30,7 @@ class CaptchaModel extends Model {
      */
     public function obtenerCaptchaPorID($id){
         foreach ($this->arrayJson['captchas'] as $key => $captcha) {
-            $resultado = array_search($id, $captcha);
-            if($resultado !== false){
+            if($captcha['captcha'] === $id){
                 return $captcha;
             }
         }

@@ -15,7 +15,6 @@ class App{
         $url = isset($_REQUEST['url']) ? $_REQUEST['url']: 'main';
         $url = rtrim($url, "/");
         $url = explode('/', $url);
-    
         $nombreController  = $url[0].'.controller';
         $archivoController = 'controllers/'.$nombreController.'.php';
 
@@ -41,7 +40,7 @@ class App{
                         }else{
                             $idCaptcha = $_REQUEST['idcaptcha'];
                             $data = $controller->$nombreFunction($idCaptcha);
-                            echo json_encode(array('OK'=>false, 'mensaje'=>'', 'data'=>$data));
+                            echo json_encode(array('OK'=>true, 'mensaje'=>'', 'data'=>$data));
                         }
                     }
                 }

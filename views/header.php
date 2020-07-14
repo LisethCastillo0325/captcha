@@ -13,6 +13,7 @@
     <link rel='stylesheet' href='https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css'>
     <link rel='stylesheet' href='https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css'>
     <link rel="stylesheet" href="<?=constant('URL')?>public/css/table.css">
+    <link rel="stylesheet" href="<?=constant('URL')?>public/css/animate.css">
 </head>
 
 <body >

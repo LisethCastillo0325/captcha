@@ -14,10 +14,15 @@ function validarCaptcha(){
     var valorDos  = document.getElementById("valorDos").value;
     var valorTres = document.getElementById("valorTres").value;
     var captchaValidar = valorUno+'-'+valorDos+'-'+valorTres;
-    if(captchaValidar !== idcaptcha){
-        alert('los datos no son iguales');
+
+    if((valorUno).length === 0 || (valorDos).length === 0 || (valorTres).length === 0){
+        alerta('info','Debes completar los campos!','');
     }else{
-        habilitarBotones();
+        if(captchaValidar !== idcaptcha){
+            alerta('warning','Aún no logras resolver el captcha!','Intenta de nuevo.');
+        }else{
+            habilitarBotones();
+        }
     }
 }
 
@@ -104,6 +109,14 @@ function inhabilitarBoton(id){
     $('#'+id).attr("disabled", true);
 }
 
+function alerta(tipo, titulo, mensaje){
+    swal({
+        title: titulo,
+        text: mensaje,
+        type: tipo
+    });
+}
+
 function confirmDelete(idcaptcha) {
 
     swal({
@@ -131,5 +144,75 @@ function confirmDelete(idcaptcha) {
         }
         //swal.closeModal();
     });
+}
 
+
+function adiccionarCamposLinkUno() {
+
+    var campos_max          = 10;   //max de 10 campos
+
+    var x = 3;
+    $('#add_btn_1').click (function(e) {
+        e.preventDefault();     //prevenir novos clicks
+        if (x < campos_max) {
+            $('#link_1').append('<div class="form-group">\
+                                <input type="text" class="form-control form-control-sm" name="campo[]">\
+                                <a href="#" class="remover_campo">Remover</a>\
+                                </div>');
+            x++;
+        }
+    });
+    // Remover o div anterior
+    $('#listas').on("click",".remover_campo",function(e) {
+        e.preventDefault();
+        $(this).parent('div').remove();
+        x--;
+    });
+}
+
+function adiccionarCamposLinkDos() {
+
+    var campos_max          = 10;   //max de 10 campos
+
+    var x = 3;
+    $('#add_btn_2').click (function(e) {
+        e.preventDefault();     //prevenir novos clicks
+        if (x < campos_max) {
+            $('#link_2').append('<div class="form-group">\
+                                <input type="text" class="form-control form-control-sm" name="campo[]">\
+                                <a href="#" class="remover_campo">Remover</a>\
+                                </div>');
+            x++;
+        }
+    });
+    // Remover o div anterior
+    $('#listas').on("click",".remover_campo",function(e) {
+        e.preventDefault();
+        $(this).parent('div').remove();
+        x--;
+    });
+}
+
+
+function adiccionarCamposLinkTres() {
+
+    var campos_max          = 10;   //max de 10 campos
+
+    var x = 3;
+    $('#add_btn_3').click (function(e) {
+        e.preventDefault();     //prevenir novos clicks
+        if (x < campos_max) {
+            $('#link_3').append('<div class="form-group">\
+                                <input type="text" class="form-control form-control-sm" name="campo[]">\
+                                <a href="#" class="remover_campo">Remover</a>\
+                                </div>');
+            x++;
+        }
+    });
+    // Remover o div anterior
+    $('#listas').on("click",".remover_campo",function(e) {
+        e.preventDefault();
+        $(this).parent('div').remove();
+        x--;
+    });
 }

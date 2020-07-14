@@ -12,7 +12,7 @@
                 {
                     "linkUno": ["https://www.google.com","https://www.facebook.com","https://www.twitter.com"],
                     "linkDos": ["https://www.youtube.com","https://www.yahoo.es","https://www.gmail.com"],
-                    "linkTres": ["https://www.mercadolibre.com","https://www.amazon.com","https://www.ebay.com", "https://www.uno.com"]
+                    "linkTres": ["https://www.mercadolibre.com","https://www.amazon.com","https://www.ebay.com"]
                 }
             ],
             "paisesVisitas": [

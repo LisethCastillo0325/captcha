@@ -1,6 +1,6 @@
 <?php include 'views/header.php'; ?>
-<!-- <div  ondragstart="return false" onselectstart="return false" oncontextmenu="return false" class="row mt-3 md-3 mb-3 justify-content-center"> -->
-<div  class="row mt-3 md-3 mb-3 justify-content-center">
+<div  ondragstart="return false" onselectstart="return false" oncontextmenu="return false" class="row mt-3 md-3 mb-3 justify-content-center">
+<!-- <div  class="row mt-3 md-3 mb-3 justify-content-center"> -->
     <div class="col-md-6">
         <div class="card" >
             <div class="card-body">

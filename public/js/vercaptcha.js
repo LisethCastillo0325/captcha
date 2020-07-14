@@ -61,3 +61,74 @@ function confirmDelete(idcaptcha) {
         //swal.closeModal();
     });
 }
+
+
+function adiccionarCamposLinkUno() {
+
+    var campos_max          = 10;   //max de 10 campos
+
+    var x = 3;
+    $('#add_btn_1').click (function(e) {
+        e.preventDefault();     //prevenir novos clicks
+        if (x < campos_max) {
+            $('#link_1').append('<div class="form-group">\
+                                <input type="text" class="form-control form-control-sm" name="campo[]">\
+                                <a href="#" class="remover_campo">Remover</a>\
+                                </div>');
+            x++;
+        }
+    });
+    // Remover o div anterior
+    $('#listas').on("click",".remover_campo",function(e) {
+        e.preventDefault();
+        $(this).parent('div').remove();
+        x--;
+    });
+}
+
+function adiccionarCamposLinkDos() {
+
+    var campos_max          = 10;   //max de 10 campos
+
+    var x = 3;
+    $('#add_btn_2').click (function(e) {
+        e.preventDefault();     //prevenir novos clicks
+        if (x < campos_max) {
+            $('#link_2').append('<div class="form-group">\
+                                <input type="text" class="form-control form-control-sm" name="campo[]">\
+                                <a href="#" class="remover_campo">Remover</a>\
+                                </div>');
+            x++;
+        }
+    });
+    // Remover o div anterior
+    $('#listas').on("click",".remover_campo",function(e) {
+        e.preventDefault();
+        $(this).parent('div').remove();
+        x--;
+    });
+}
+
+
+function adiccionarCamposLinkTres() {
+
+    var campos_max          = 10;   //max de 10 campos
+
+    var x = 3;
+    $('#add_btn_3').click (function(e) {
+        e.preventDefault();     //prevenir novos clicks
+        if (x < campos_max) {
+            $('#link_3').append('<div class="form-group">\
+                                <input type="text" class="form-control form-control-sm" name="campo[]">\
+                                <a href="#" class="remover_campo">Remover</a>\
+                                </div>');
+            x++;
+        }
+    });
+    // Remover o div anterior
+    $('#listas').on("click",".remover_campo",function(e) {
+        e.preventDefault();
+        $(this).parent('div').remove();
+        x--;
+    });
+}

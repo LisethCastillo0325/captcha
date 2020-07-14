@@ -1,5 +1,4 @@
-
-
+<?php include 'views/header.php'; ?>
 
     <form>
         <div class="row mb-4">
@@ -88,3 +87,4 @@
         </div>
     </form>
 
+<?php include 'views/footer.php'; ?>

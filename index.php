@@ -5,12 +5,7 @@
     require_once 'libs/app.php';
     require_once 'config/config.php';
 
-  
-    include 'views/header.php';
-
+    // quité el encabezado y pie porque necesito que desde el ejemplo POST no me retorne todo este HTML
     $app = new App();
-
-    include 'views/footer.php';
-
 ?>
 

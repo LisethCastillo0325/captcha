@@ -23,6 +23,21 @@ class CaptchaModel extends Model {
       return  $this->arrayJson;
     }
 
+    /**
+     * Busca en el array la información del captcha que corresponda al IS
+     * @param string $id
+     * @return array
+     */
+    public function obtenerCaptchaPorID($id){
+        foreach ($this->arrayJson['captchas'] as $key => $captcha) {
+            $resultado = array_search($id, $captcha);
+            if($resultado !== false){
+                return $captcha;
+            }
+        }
+        return array();
+    } 
+
 
     public function editar(){
 

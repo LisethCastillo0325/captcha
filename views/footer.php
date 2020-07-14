@@ -4,7 +4,6 @@
 
     Pie de pagina | WLA Capchat 2020
 
-
 </footer>
 
 
@@ -21,8 +20,8 @@
 <script src='https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js'></script>
 <script src='https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js'></script>
 <script src='https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js'></script>
-<script src="../public/js/table.js" type="text/javascript"></script>
-<script src="../public/js/custom.js" type="text/javascript"></script>
+<script src="<?=constant('URL')?>public/js/table.js" type="text/javascript"></script>
+<script src="<?=constant('URL')?>public/js/custom.js" type="text/javascript"></script>
 
 </body>
 

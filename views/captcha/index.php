@@ -1,6 +1,7 @@
 
 <?php
-   $datos = $this->resultado['captchas'];
+    include 'views/header.php';
+    $datos = $this->resultado['captchas'];
 ?>
 <div class="container">
 
@@ -65,3 +66,5 @@
     </div>
 
 </div>
+
+<?php include 'views/footer.php'; ?>

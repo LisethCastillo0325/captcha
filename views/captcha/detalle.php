@@ -1,5 +1,7 @@
 
 <?php
+     include 'views/header.php';
+
     //$datos = $this->resultado['captchas']['captcha'];
      $datos   = $this->resultado['captchas'];
      $captcha = $this->captcha;
@@ -127,3 +129,5 @@
 
 
 </div>
+
+<?php include 'views/footer.php'; ?>

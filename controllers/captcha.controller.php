@@ -33,9 +33,26 @@ class CaptchaController extends Controller{
     }
 
     public function ver($id){
-        $this->view->id = $id;
-        $this->view->render('captcha/ver');
+        $captcha = $this->model->obtenerCaptchaPorID($id);
+        if(count($captcha) == 0){
+            new ErrorsController('404');
+        }else{
+            //var_dump($captcha['links']);
+            $this->view->captcha = $captcha;
+            $this->view->render('captcha/ver');
+        }
+
     }
+
+    public function apiObtenerLinksCaptcha($id){
+        $captcha = $this->model->obtenerCaptchaPorID($id);
+        if(count($captcha) == 0){
+            return null;
+        }else{
+            return $captcha['links'];
+        }
+    }
+
 
 }
 

@@ -20,7 +20,13 @@
 <script src='https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js'></script>
 <script src='https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js'></script>
 <script src='https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.min.js'></script>
+
 <script src="<?=constant('URL')?>public/js/table.js" type="text/javascript"></script>
+<<<<<<< HEAD
+=======
+<!--<script src="<?=constant('URL')?>public/js/custom.js" type="text/javascript"></script>-->
+>>>>>>> 3ba3d96c6dc226dab82ab5c9718221335f30c2f5
 
 </body>
 

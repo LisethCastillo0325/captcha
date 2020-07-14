@@ -39,13 +39,18 @@ class CaptchaController extends Controller{
         }
     }
 
-    public function apiObtenerLinksCaptcha($id){
+    public function apiObtenerCaptcha($id){
         $captcha = $this->model->obtenerCaptchaPorID($id);
         if(count($captcha) == 0){
             return null;
         }else{
-            return $captcha['links'];
+            return $captcha;
         }
+    }
+
+    public function eliminar($id){
+
+         return $this->model->eliminarCaptcha($id);
     }
 
 

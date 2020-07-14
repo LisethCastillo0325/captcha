@@ -50,9 +50,9 @@ function agregarEventoABoton($id){
 
 function obtenerLinksBotones(keyLink){
     if(finalLinksBoton1 === false || finalLinksBoton2 === false || finalLinksBoton3 === false){
-        $.post("http://localhost/captchamvc/captcha/apiObtenerLinksCaptcha/", {idcaptcha: idcaptcha},
+        $.post("http://localhost/captchamvc/captcha/apiObtenerCaptcha/", {idcaptcha: idcaptcha},
             function (data) {
-                manejadorLinks(keyLink, data['data'][0][keyLink]);
+                manejadorLinks(keyLink, data['data']['links'][0][keyLink]);
             }, "json");
     }
 }
@@ -102,4 +102,34 @@ function abrirLink(url){
 
 function inhabilitarBoton(id){
     $('#'+id).attr("disabled", true);
+}
+
+function confirmDelete(idcaptcha) {
+
+    swal({
+        title: "Atención!!!",
+        text: "¿Esta seguro de eliminar el registro?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Eliminar!",
+        cancelButtonText: "Cancelar!",
+
+    }).then(result => {
+        swal("Eliminado!", "Su Registro ha sido eliminado.", "success");
+        if (result.value) {
+
+            //window.location.href="http://localhost/captchamvc/captcha/eliminar/"+idcaptcha;
+            $.post("http://localhost/captchamvc/captcha/eliminar/" + idcaptcha);
+            location.reload();
+
+        } else if (
+            // Read more about handling dismissals
+            result.dismiss === swal.DismissReason.cancel
+        ) {
+            swal("Cancelado", "Tu Registro esta seguro :)", "error");
+        }
+        //swal.closeModal();
+    });
+
 }

@@ -41,7 +41,8 @@
                         <td>
                             <a href="<?php echo constant('URL') ?>captcha/ver/<?=$dato['captcha']?>"   data-toggle="tooltip" title="Ver captcha" class="btn btn-sm btn-primary"> <i class="fa fa-eye"></i> </a>
                             <a href="<?php echo constant('URL') ?>captcha/editar/<?=$dato['captcha']?>"   data-toggle="tooltip" title="Editar datos" class="btn btn-sm btn-info"> <i class="fa fa-pencil"></i> </a>
-                            <a href="index.php?action=delete&id='.$dato['captcha'].'"  data-toggle="tooltip" title="Eliminar" class="btn btn-sm btn-danger"> <i class="fa fa-trash"></i> </a>
+                            <a href="#" id="<?=$dato['captcha']?>" onclick="confirmDelete('<?=$dato['captcha']?>')"  class="btn btn-danger btn-sm "><i class="fa fa-trash"></i></a>
+
                         </td>
 
                     </tr>
@@ -66,5 +67,6 @@
     </div>
 
 </div>
+<script src="<?php echo constant('URL') ?>public/js/vercaptcha.js" type="text/javascript"></script>
 
 <?php include 'views/footer.php'; ?>

@@ -53,6 +53,11 @@ class CaptchaController extends Controller{
         }
     }
 
+    public function eliminar($id){
+
+         return $this->model->eliminarCaptcha($id);
+    }
+
 
 }
 

@@ -43,6 +43,22 @@ class CaptchaModel extends Model {
 
     }
 
+    public function eliminarCaptcha($idCaptcha){
+
+        foreach($this->arrayJson['captchas'] as $key => $captcha)
+        {
+            if($captcha['captcha']==$idCaptcha)
+            {
+              unset($this->arrayJson['captchas'][$key]);
+            }
+        }
+
+
+        $json_string = json_encode($this->arrayJson);
+        $file = "data/data.json";
+        file_put_contents($file, $json_string);
+    }
+
 }
 
 

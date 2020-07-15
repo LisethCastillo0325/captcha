@@ -35,11 +35,12 @@ class App{
                         echo json_encode(array('OK'=>false, 'mensaje'=>'recurso no encontrado', 'data'=>null, 'error' => 404));
                     }else{
                       
-                        if(! isset($_REQUEST['idcaptcha']) ){
-                            echo json_encode(array('OK'=>false, 'mensaje'=>'recurso no encontrado', 'data'=>null, 'error' => 404));
-                        }else{
+                        if(isset($_REQUEST['idcaptcha']) ){
                             $idCaptcha = $_REQUEST['idcaptcha'];
                             $data = $controller->$nombreFunction($idCaptcha);
+                            echo json_encode(array('OK'=>true, 'mensaje'=>'', 'data'=>$data));
+                        }else{
+                            $data = $controller->$nombreFunction();
                             echo json_encode(array('OK'=>true, 'mensaje'=>'', 'data'=>$data));
                         }
                     }

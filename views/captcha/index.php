@@ -36,15 +36,13 @@
                         <td><?php echo $dato['urlCliente'];?></td>
                         <td><?php echo $dato['cantidadVisitas'];?></td>
                         <td>
-                            <a href="<?php echo constant('URL') ?>captcha/detalle/<?=$dato['captcha']?>"   data-toggle="tooltip" title="Ver captcha" class="btn btn-sm btn-default"> <?php echo $dato['cantidadPaises'];?> </a>
+                            <a href="<?=constant('URL') ?>captcha/detalle/<?=$dato['captcha']?>"   data-toggle="tooltip" title="Ver captcha" class="btn btn-sm btn-default"> <?php echo $dato['cantidadPaises'];?> </a>
                         </td>
                         <td>
-                            <a href="<?php echo constant('URL') ?>captcha/ver/<?=$dato['captcha']?>"   data-toggle="tooltip" title="Ver captcha" class="btn btn-sm btn-primary"> <i class="fa fa-eye"></i> </a>
-                            <a href="<?php echo constant('URL') ?>captcha/editar/<?=$dato['captcha']?>"   data-toggle="tooltip" title="Editar datos" class="btn btn-sm btn-info"> <i class="fa fa-pencil"></i> </a>
+                            <a href="<?=$dato['urlCliente'].$dato['captcha']?>" target="_blank"  data-toggle="tooltip" title="Ver captcha" class="btn btn-sm btn-primary"> <i class="fa fa-eye"></i> </a>
+                            <a href="<?=constant('URL') ?>captcha/editar/<?=$dato['captcha']?>"   data-toggle="tooltip" title="Editar datos" class="btn btn-sm btn-info"> <i class="fa fa-pencil"></i> </a>
                             <a href="#" id="<?=$dato['captcha']?>" onclick="confirmDelete('<?=$dato['captcha']?>')"  class="btn btn-danger btn-sm "><i class="fa fa-trash"></i></a>
-
                         </td>
-
                     </tr>
 
                   <?php } ?>

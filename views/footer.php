@@ -23,7 +23,7 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.min.js'></script>
 
 <script src="<?=constant('URL')?>public/js/table.js" type="text/javascript"></script>
-<!--<script src="<?=constant('URL')?>public/js/custom.js" type="text/javascript"></script>-->
+<script src="<?php echo constant('URL') ?>public/js/sesion.js" type="text/javascript"></script>
 
 </body>
 

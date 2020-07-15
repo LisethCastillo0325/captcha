@@ -4,8 +4,10 @@
     require_once 'libs/model.php';
     require_once 'libs/app.php';
     require_once 'config/config.php';
-
-    // quité el encabezado y pie porque necesito que desde el ejemplo POST no me retorne todo este HTML
+    require_once 'config/usersession.php';
+  
+    $userSession = new UserSession();
     $app = new App();
+
 ?>
 

@@ -65,6 +65,6 @@
     </div>
 
 </div>
-<script src="<?php echo constant('URL') ?>public/js/vercaptcha.js" type="text/javascript"></script>
+<script src="<?php echo constant('URL') ?>public/js/general.js" type="text/javascript"></script>
 
 <?php include 'views/footer.php'; ?>

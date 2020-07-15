@@ -14,6 +14,8 @@ class CaptchaController extends Controller{
     }
 
     public function crear(){
+        $resultado = $this->model->listarTodos();
+        $this->view->resultado = $resultado;
         $this->view->render('captcha/crear');
     }
 
@@ -51,6 +53,11 @@ class CaptchaController extends Controller{
     public function eliminar($id){
 
          return $this->model->eliminarCaptcha($id);
+    }
+
+    public function apiObtenerJsonCaptcha(){
+        $resultado = $this->model->listarTodos();
+       return $resultado;
     }
 
 

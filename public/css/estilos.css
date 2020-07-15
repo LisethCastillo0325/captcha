@@ -1,6 +1,21 @@
+html,body {
+    height:100%;
+}
+/* Div que engloba el contenido de la página menos el footer */
+#wrapper {
+    min-height:100%;
+}
 footer {
-    position: fixed;
-    bottom: 0px!important;
-    left: 0px;
-    width: 100%;
+    position: relative;
+    /* Altura total del footer en px con valor negativo */
+    margin-top: -50px;
+    height: 50px;
+    padding:0px 0px;
+    clear: both;
+    text-align: center;
+    color: #fff;
+}
+
+.define {
+    margin:0 auto;
 }

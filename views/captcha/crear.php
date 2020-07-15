@@ -1,4 +1,7 @@
-<?php include 'views/header.php'; ?>
+<?php include 'views/header.php';
+$datos = $this->resultado['captchas'];
+
+?>
 
     <div class="container">
 
@@ -15,16 +18,17 @@
 
                             <label>Link 1 <input type="button" class="btn btn-success btn-sm" id="add_btn_1" value="adicionar" onclick="adiccionarCamposLinkUno()">
                             </label>
+                            <input type="hidden" id="url" value="<?php echo constant('URL') ?>" class="form-control form-control-sm" >
 
                             <div id="link_1">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" >
+                                    <input type="text" class="form-control form-control-sm" name="link_1[]" >
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" >
+                                    <input type="text" class="form-control form-control-sm" name="link_1[]" >
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" >
+                                    <input type="text" class="form-control form-control-sm" name="link_1[]" >
                                 </div>
                             </div>
 
@@ -69,12 +73,34 @@
                         </div>
 
 
-                        <button type="submit" class="btn btn-primary offset-5">Generar Capcha</button>
+                        <button type="text" class="btn btn-primary offset-5" onclick="generarCaptcha()">Generar Capcha</button>
+
                         </div>
                     </form>
+
+                <div class="row mt-2 mb-3">
+                    <div class="col-md-4 ">
+                    </div>
+                    <div class="col-md-4 ">
+                        <input type="text" class="form-control form-control-sm "  value="https://localhost/5463-8746-HTDR">
+                    </div>
+                    <div class="col-md-4 ">
+                    </div>
+                </div>
+                <div class="row mt-4 mb-4">
+                    <div class="col-md-6 ">
+                        <button type="submit" class="btn btn-primary offset-7">Copiar Url Capcha</button>
+                    </div>
+
+                    <div class="col-md-6 ">
+                        <a href="" target="_blank" class="btn btn-primary offset-2">Ver Capcha </a>
+                    </div>
+
+                </div>
+
             </div>
         </div>
 </div>
-<script src="<?php echo constant('URL') ?>public/js/vercaptcha.js" type="text/javascript"></script>
+<script src="<?php echo constant('URL') ?>public/js/general.js" type="text/javascript"></script>
 
 <?php include 'views/footer.php'; ?>

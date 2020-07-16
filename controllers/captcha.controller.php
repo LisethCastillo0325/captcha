@@ -60,6 +60,11 @@ class CaptchaController extends Controller{
        return $resultado;
     }
 
+    public function generarCaptcha($id){
+
+        return $this->model->generarCaptcha($id);
+    }
+
 
 }
 

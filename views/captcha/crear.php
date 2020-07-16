@@ -11,7 +11,7 @@ $datos = $this->resultado['captchas'];
             <div class="col-12" >
                 <h3 class="titulo-tabla">Generación de Captcha </h3>
 
-                    <form>
+                    <form id="frm-crear-captcha" name="fcaptcha" onsubmit="return generarCaptcha();" autocomplete="off">
                         <div class="row mb-4">
 
                         <div class="col-md-4 ">
@@ -22,13 +22,13 @@ $datos = $this->resultado['captchas'];
 
                             <div id="link_1">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" name="link_1[]" >
+                                    <input type="text" class="form-control form-control-sm" name="link_1" >
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" name="link_1[]" >
+                                    <input type="text" class="form-control form-control-sm" name="link_1">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" name="link_1[]" >
+                                    <input type="text" class="form-control form-control-sm"  name="link_1">
                                 </div>
                             </div>
 
@@ -41,13 +41,13 @@ $datos = $this->resultado['captchas'];
 
                             <div id="link_2">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" >
+                                    <input type="text" class="form-control form-control-sm" name="link_2" >
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" >
+                                    <input type="text" class="form-control form-control-sm" name="link_2">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" >
+                                    <input type="text" class="form-control form-control-sm" name="link_2">
                                 </div>
                             </div>
 
@@ -60,20 +60,22 @@ $datos = $this->resultado['captchas'];
 
                             <div id="link_3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" >
+                                    <input type="text" class="form-control form-control-sm" name="link_3">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" >
+                                    <input type="text" class="form-control form-control-sm"  name="link_3">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" >
+                                    <input type="text" class="form-control form-control-sm" name="link_3">
                                 </div>
                             </div>
 
                         </div>
 
 
-                        <button type="text" class="btn btn-primary offset-5" onclick="generarCaptcha()">Generar Capcha</button>
+                        <button type="button" class="btn btn-primary offset-5" onclick="generarCaptcha()">Generar Capcha</button>
+                           <!-- <input type="submit" class="btn btn-primary offset-5" value="Generar Capcha">-->
+
 
                         </div>
                     </form>

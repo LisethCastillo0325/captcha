@@ -17,7 +17,7 @@
       <h3>Inicio de sesión</h3>
     </div>
     <!-- Login Form -->
-    <form id="frm-login" onsubmit="return validarLogin();" >
+    <form id="frm-login" onsubmit="return validarLogin();" autocomplete="off" >
       <input type="text" name="email" id="login" class="fadeIn second" placeholder="Email" required>
       <input type="password" name="password" id="password" class="fadeIn third" placeholder="Contraseña" required>
       <input type="submit" class="fadeIn fourth" value="INICIAR SESIÓN">

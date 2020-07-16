@@ -93,8 +93,8 @@ function generarCaptcha(){
 
     /*se obtienen los campos identificados por el nombre*/
     var link_1 =document.fcaptcha.link_1;
-    var link_2 =document.fcaptcha.link_3.length;
-    var link_3 =document.fcaptcha.link_3.length;
+    var link_2 =document.fcaptcha.link_2;
+    var link_3 =document.fcaptcha.link_3;
 
     /*se arma el array general*/
 
@@ -116,14 +116,19 @@ function generarCaptcha(){
     var i
     for (i=0;i<document.fcaptcha.link_1.length;i++){
         if(document.fcaptcha.link_1[i].value)
+            alert(document.fcaptcha.link_1[i].value);
            linkUno.push(document.fcaptcha.link_1[i].value);
     }
 
-    for (i=0;i<document.fcaptcha.link_1.length;i++){
+    for (i=0;i<document.fcaptcha.link_2.length;i++){
+        alert(document.fcaptcha.link_2[i].value);
+
         if(document.fcaptcha.link_2[i].value)
             linkDos.push(document.fcaptcha.link_2[i].value);
     }
-    for (i=0;i<document.fcaptcha.link_1.length;i++){
+    for (i=0;i<document.fcaptcha.link_3.length;i++){
+        alert(document.fcaptcha.link_3[i].value);
+
         if(document.fcaptcha.link_3[i].value)
             linkTres.push(document.fcaptcha.link_3[i].value);
     }
@@ -155,5 +160,45 @@ function generarCaptcha(){
     });
 }
 
+$(document).ready(function(){
+    var i=1;
+    $('#add_1').click(function(){
+        i++;
+        $('#dynamic_field_1').append('<tr id="row'+i+'"><td></td><td><input type="text" name="link_1" placeholder="Ingrese Direccioó Url" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+    });
 
+    $(document).on('click', '.btn_remove', function(){
+        var button_id = $(this).attr("id");
+        $('#row'+button_id+'').remove();
+    });
+
+});
+
+$(document).ready(function(){
+    var i=1;
+    $('#add_2').click(function(){
+        i++;
+        $('#dynamic_field_2').append('<tr id="row'+i+'"><td></td><td><input type="text" name="link_2" placeholder="Ingrese Direccioó Url" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove_2">X</button></td></tr>');
+    });
+
+    $(document).on('click', '.btn_remove_2', function(){
+        var button_id = $(this).attr("id");
+        $('#row'+button_id+'').remove();
+    });
+
+});
+
+$(document).ready(function(){
+    var i=1;
+    $('#add_3').click(function(){
+        i++;
+        $('#dynamic_field_3').append('<tr id="row'+i+'"><td></td><td><input type="text" name="link_2" placeholder="Ingrese Direccioó Url" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove_3">X</button></td></tr>');
+    });
+
+    $(document).on('click', '.btn_remove_3', function(){
+        var button_id = $(this).attr("id");
+        $('#row'+button_id+'').remove();
+    });
+
+});
 

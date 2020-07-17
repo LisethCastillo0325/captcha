@@ -248,6 +248,8 @@ class CaptchaModel extends Model {
 
         $fecha =  date("Y-m-d");
 
+        $url_captcha = constant("URL_ORIGEN");
+        $newdata = array();
 
         /* si el captcha es unico crea el registro nuevo*/
         if($flag){
@@ -258,7 +260,7 @@ class CaptchaModel extends Model {
                 'fechaCreacion' => $fecha,
                 'cantidadVisitas' => 0,
                 'cantidadPaises' => 0,
-                'urlCliente' => 'http://localhost/vercaptcha/',
+                'urlCliente' => $url_captcha.'/vercaptcha/',
                 'links' => [$idCaptcha['links']],
                 'paisesVisitas' => array()
             );// for recipe
@@ -273,7 +275,7 @@ class CaptchaModel extends Model {
         $file = "data/data.json";
         file_put_contents($file, $json_string);
 
-        return "Registro Generado Satisfactoriamente";
+        return $newdata;
     }
 
     public function generarIdCaptcha(){

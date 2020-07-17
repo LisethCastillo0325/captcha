@@ -64,6 +64,8 @@ class CaptchaController extends Controller{
 
     public function generarCaptcha($id){
 
+        return $id;
+
         return $this->model->generarCaptcha($id);
     }
     public function modificarCaptcha($id){

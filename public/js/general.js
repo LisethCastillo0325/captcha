@@ -117,26 +117,31 @@ function generarCaptcha(){
 
     var i
     for (i=0;i<document.fcaptcha.link_1.length;i++){
-        if(document.fcaptcha.link_1[i].value)
-           linkUno.push(document.fcaptcha.link_1[i].value);
+        if(document.fcaptcha.link_1[i].value){
+            alert(document.fcaptcha.link_1[i].value);
+            linkUno.push(document.fcaptcha.link_1[i].value);
+        }
     }
 
     for (i=0;i<document.fcaptcha.link_2.length;i++){
 
-        if(document.fcaptcha.link_2[i].value)
+        if(document.fcaptcha.link_2[i].value){
             linkDos.push(document.fcaptcha.link_2[i].value);
+        }
     }
     for (i=0;i<document.fcaptcha.link_3.length;i++){
 
-        if(document.fcaptcha.link_3[i].value)
+        if(document.fcaptcha.link_3[i].value){
             linkTres.push(document.fcaptcha.link_3[i].value);
+        }
     }
 
     /*se llena el array principal con la informacion los links*/
-
+    console.log("link 1",linkUno);
     captcha.links.linkUno  = linkUno;
     captcha.links.linkDos  = linkDos;
     captcha.links.linkTres = linkTres;
+    console.log("captcha 1",captcha);
 
 
     var url =document.getElementById("url").value;

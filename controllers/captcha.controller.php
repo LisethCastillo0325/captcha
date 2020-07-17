@@ -8,13 +8,13 @@ class CaptchaController extends Controller{
     }
 
     public function listar(){
-        $resultado = $this->model->listarTodos();
+        $resultado = $this->model->obtenerTodosLosCaptchas();
         $this->view->resultado = $resultado;
         $this->view->render('captcha/index');
     }
 
     public function crear(){
-        $resultado = $this->model->listarTodos();
+        $resultado = $this->model->obtenerTodosLosCaptchas();
         $this->view->resultado = $resultado;
         $this->view->render('captcha/crear');
     }
@@ -24,7 +24,7 @@ class CaptchaController extends Controller{
     }
 
     public function detalle($id){
-        $resultado = $this->model->listarTodos();
+        $resultado = $this->model->obtenerTodosLosCaptchas();
         $this->view->resultado = $resultado;
         $this->view->captcha   = $id;
 
@@ -56,10 +56,20 @@ class CaptchaController extends Controller{
     }
 
     public function apiObtenerJsonCaptcha(){
-        $resultado = $this->model->listarTodos();
-       return $resultado;
+        return $this->model->obtenerTodosLosCaptchas();
     }
 
+
+    public function apiAgregarVisita(){
+
+        $_captcha = trim($_POST['captcha']);
+        $_pais    = trim($_POST['pais']);
+        $_region  = trim($_POST['region']);
+        $_ciudad  = trim($_POST['ciudad']);
+        $_ip      = trim($_POST['ip']);
+
+        return $this->model->apiAgregarVisita($_captcha, $_pais, $_region, $_ciudad, $_ip);
+    }
 
 }
 

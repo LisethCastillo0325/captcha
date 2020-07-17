@@ -20,6 +20,8 @@ class CaptchaController extends Controller{
     }
 
     public function editar($id){
+        $resultado = $this->model->listarTodos();
+        $this->view->resultado = $resultado;
         $this->view->render('captcha/editar');
     }
 

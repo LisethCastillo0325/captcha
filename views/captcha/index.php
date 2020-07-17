@@ -16,11 +16,11 @@
                 <thead>
                 <tr>
                     <th>Fecha</th>
-                    <th>Titulo</th>
+                    <th>Título</th>
                     <th>Captcha</th>
-                    <th>Url</th>
+                    <th>Url Captcha</th>
                     <th>Cant. Visitas</th>
-                    <th>Cant. Paises</th>
+                    <th>Cant. Visitas Por País</th>
                     <th>Acciones</th>
 
                 </tr>

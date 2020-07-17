@@ -2,9 +2,7 @@
 $datos = $this->resultado['captchas'];
 
 ?>
-<script type="text/javascript">
 
-</script>
     <div class="container">
 
 
@@ -21,21 +19,22 @@ $datos = $this->resultado['captchas'];
                             <form id="frm-crear-captcha" name="fcaptcha">
                                 <input type="hidden" id="url" value="<?php echo constant('URL') ?>" class="form-control form-control-sm" >
 
+
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dynamic_field_1">
                                         <tr>
                                             <td><label>Link 1</label></td>
-                                            <td><input type="text" name="link_1" placeholder="Ingrese Direccioó Url" class="form-control name_list" /></td>
+                                            <td><input type="text" name="link_1" placeholder="Ingrese Dirección Url" class="form-control name_list" /></td>
                                             <td><button type="button" name="add_1" id="add_1" class="btn btn-success">Agregar Más</button></td>
                                         </tr>
                                         <tr>
                                             <td><label></label></td>
-                                            <td><input type="text" name="link_1" placeholder="Ingrese Direccioó Url" class="form-control name_list" /></td>
+                                            <td><input type="text" name="link_1" placeholder="Ingrese Dirección Url" class="form-control name_list" /></td>
                                             <td></td>
                                         </tr>
                                         <tr>
                                             <td><label></label></td>
-                                            <td><input type="text" name="link_1" placeholder="Ingrese Direccioó Url" class="form-control name_list" /></td>
+                                            <td><input type="text" name="link_1" placeholder="Ingrese Dirección Url" class="form-control name_list" /></td>
                                             <td></td>
                                         </tr>
                                     </table>
@@ -43,17 +42,17 @@ $datos = $this->resultado['captchas'];
                                     <table class="table table-bordered" id="dynamic_field_2">
                                         <tr>
                                             <td><label>Link 2</label></td>
-                                            <td><input type="text" name="link_2" placeholder="Ingrese Direccioó Url" class="form-control name_list" /></td>
+                                            <td><input type="text" name="link_2" placeholder="Ingrese Dirección Url" class="form-control name_list" /></td>
                                             <td><button type="button" name="add_2" id="add_2" class="btn btn-success">Agregar Más</button></td>
                                         </tr>
                                         <tr>
                                             <td><label></label></td>
-                                            <td><input type="text" name="link_2" placeholder="Ingrese Direccioó Url" class="form-control name_list" /></td>
+                                            <td><input type="text" name="link_2" placeholder="Ingrese Dirección Url" class="form-control name_list" /></td>
                                             <td></td>
                                         </tr>
                                         <tr>
                                             <td><label></label></td>
-                                            <td><input type="text" name="link_2" placeholder="Ingrese Direccioó Url" class="form-control name_list" /></td>
+                                            <td><input type="text" name="link_2" placeholder="Ingrese Dirección Url" class="form-control name_list" /></td>
                                             <td></td>
                                         </tr>
                                     </table>
@@ -61,22 +60,22 @@ $datos = $this->resultado['captchas'];
                                     <table class="table table-bordered" id="dynamic_field_3">
                                         <tr>
                                             <td><label>Link 3</label></td>
-                                            <td><input type="text" name="link_3" placeholder="Ingrese Direccioó Url" class="form-control name_list" /></td>
+                                            <td><input type="text" name="link_3" placeholder="Ingrese Dirección Url" class="form-control name_list" /></td>
                                             <td><button type="button" name="add_3" id="add_3" class="btn btn-success">Agregar Más</button></td>
                                         </tr>
                                         <tr>
                                             <td><label></label></td>
-                                            <td><input type="text" name="link_3" placeholder="Ingrese Direccioó Url" class="form-control name_list" /></td>
+                                            <td><input type="text" name="link_3" placeholder="Ingrese Dirección Url" class="form-control name_list" /></td>
                                             <td></td>
                                         </tr>
                                         <tr>
                                             <td><label></label></td>
-                                            <td><input type="text" name="link_3" placeholder="Ingrese Direccioó Url" class="form-control name_list" /></td>
+                                            <td><input type="text" name="link_3" placeholder="Ingrese Dirección Url" class="form-control name_list" /></td>
                                             <td></td>
                                         </tr>
                                     </table>
                                 </div>
-                                <button type="button" class="btn btn-primary offset-5" onclick="generarCaptcha()">Generar Capcha</button>
+                                <button type="button" class="btn btn-primary offset-5" onclick="generarCaptcha()">Generar Captcha</button>
 
                             </form>
 
@@ -91,11 +90,11 @@ $datos = $this->resultado['captchas'];
                             </div>
                             <div class="row mt-4 mb-4">
                                 <div class="col-md-6 ">
-                                    <button type="submit" class="btn btn-primary offset-7">Copiar Url Capcha</button>
+                                    <button type="submit" class="btn btn-primary offset-7">Copiar Url Captcha</button>
                                 </div>
 
                                 <div class="col-md-6 ">
-                                    <a href="" target="_blank" class="btn btn-primary offset-2">Ver Capcha </a>
+                                    <a href="" target="_blank" class="btn btn-primary offset-2">Ver Captcha </a>
                                 </div>
 
                             </div>

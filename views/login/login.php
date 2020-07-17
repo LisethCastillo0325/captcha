@@ -14,7 +14,7 @@
 <div class="wrapper fadeInDown">
   <div id="formContent" class="pt-5">
     <div class="fadeIn first">
-      <h3>Inicio de sesión</h3>
+      <h3>Iniciar Sesión</h3>
     </div>
     <!-- Login Form -->
     <form id="frm-login" onsubmit="return validarLogin();" autocomplete="off" >
@@ -25,7 +25,7 @@
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="#">Olvidó la contraseña?</a>
+      <!--<a class="underlineHover" href="#">Olvidó la contraseña?</a>-->
     </div>
 
   </div>

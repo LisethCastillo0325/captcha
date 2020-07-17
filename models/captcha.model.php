@@ -232,9 +232,6 @@ class CaptchaModel extends Model {
 
     public function generarCaptcha($idCaptcha){
 
-        return $idCaptcha;
-
-
         $flag = false;
         $x=0;
         $num=1;

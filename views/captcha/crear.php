@@ -21,6 +21,18 @@ $datos = $this->resultado['captchas'];
                 <div class="form-group">
                     <form id="frm-crear-captcha" name="fcaptcha">
                         <input type="hidden" id="url" value="<?php echo constant('URL') ?>" class="form-control form-control-sm" >
+
+                         <div class="row mb-2">
+                                <div class="col d-flex justify-content-end">
+                                    <label>Titulo</label>
+                                </div>
+                                <div class="col">
+                                        <input type="text" class="form-control" id="titulo" name="titulo" value="<?php echo $datos['titulo'] ?>" >
+                                </div>
+                                <div class="col">
+                                </div>
+                            </div>
+
                         <div id="dynamic_field_1">
                             <div class="row mb-2">
                                 <div class="col d-flex justify-content-end">

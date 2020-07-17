@@ -102,11 +102,11 @@ function generarCaptcha(){
 
     var captcha = {
         'titulo' : titulo,
-        'links' : [{
-            'linkUno': "",
-            'linkDos': "",
-            'linkTres':""
-        }]
+        'links' : {
+            'linkUno': [],
+            'linkDos': [],
+            'linkTres':[]
+        }
     }
 
 
@@ -118,7 +118,6 @@ function generarCaptcha(){
     var i;
     for (i=0;i<document.fcaptcha.link_1.length;i++){
         if(document.fcaptcha.link_1[i].value){
-            alert(document.fcaptcha.link_1[i].value);
             linkUno.push(document.fcaptcha.link_1[i].value);
         }
     }

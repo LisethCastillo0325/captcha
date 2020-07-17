@@ -2,105 +2,158 @@
 $datos = $this->resultado['captchas'];
 
 ?>
+<script type="text/javascript">
 
-    <div class="container">
+</script>
+<style>
+    .table td {
+        border-top: none;
+    }
+</style>
+ 
 
 
-        <div class="row">
+        <h3 class="titulo-tabla">Generación de Captcha </h3>
 
-            <div class="col-12" >
-                <h3 class="titulo-tabla">Generación de Captcha </h3>
-
-                    <form>
-                        <div class="row mb-4">
-
-                        <div class="col-md-4 ">
-
-                            <label>Link 1 <input type="button" class="btn btn-success btn-sm" id="add_btn_1" value="adicionar" onclick="adiccionarCamposLinkUno()">
-                            </label>
-                            <input type="hidden" id="url" value="<?php echo constant('URL') ?>" class="form-control form-control-sm" >
-
-                            <div id="link_1">
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" name="link_1[]" >
+        <hr>
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <!-- Contenido -->
+                <div class="form-group">
+                    <form id="frm-crear-captcha" name="fcaptcha">
+                        <input type="hidden" id="url" value="<?php echo constant('URL') ?>" class="form-control form-control-sm" >
+                        <div id="dynamic_field_1">
+                            <div class="row mb-2">
+                                <div class="col d-flex justify-content-end">
+                                    <label>Link 1</label>
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" name="link_1[]" >
+                                <div class="col">
+                                    <input type="text" name="link_1" placeholder="Ingrese Dirección Url" class="form-control name_list" />
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" name="link_1[]" >
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="col-md-4 ">
-
-                            <label>Link 2 <input type="button" id="add_btn_2" value="adicionar" onclick="adiccionarCamposLinkDos()">
-                            </label>
-
-                            <div id="link_2">
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" >
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" >
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" >
+                                <div class="col">
+                                    <button type="button" name="add_1" id="add_1" class="btn btn-success" data-toggle="tooltip" data-placement="right" title="Agregar Más">+</button>
                                 </div>
                             </div>
-
+                        
+                            <div class="row mb-2">
+                                <div class="col">
+                                </div>
+                                <div class="col">
+                                    <input type="text" name="link_1" placeholder="Ingrese Dirección Url" class="form-control name_list" />
+                                </div>
+                                <div class="col">
+                                </div>
+                            </div>  
+                            <div class="row mb-2">
+                                <div class="col">
+                                </div>
+                                <div class="col">
+                                    <input type="text" name="link_1" placeholder="Ingrese Dirección Url" class="form-control name_list" />
+                                </div>
+                                <div class="col">
+                                </div>
+                            </div>  
                         </div>
 
-                        <div class="col-md-4 ">
-
-                            <label>Link 3 <a href="#" id="add_btn_3" class="btn btn-success  btn-sm" onclick="adiccionarCamposLinkTres()"><i class="fa fa-plus"></i></a>
-                            </label>
-
-                            <div id="link_3">
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" >
+                        <div id="dynamic_field_2">
+                            <div class="row mb-2">
+                                <div class="col d-flex justify-content-end">
+                                    <label>Link 2</label>
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" >
+                                <div class="col">
+                                    <input type="text" name="link_2" placeholder="Ingrese Dirección Url" class="form-control name_list" />
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" >
+                                <div class="col">
+                                    <button type="button" name="add_2" id="add_2" class="btn btn-success" data-toggle="tooltip" data-placement="right" title="Agregar Más">+</button>
                                 </div>
                             </div>
-
+                        
+                            <div class="row mb-2">
+                                <div class="col">
+                                </div>
+                                <div class="col">
+                                    <input type="text" name="link_2" placeholder="Ingrese Dirección Url" class="form-control name_list" />
+                                </div>
+                                <div class="col">
+                                </div>
+                            </div>  
+                            <div class="row mb-2">
+                                <div class="col">
+                                </div>
+                                <div class="col">
+                                    <input type="text" name="link_2" placeholder="Ingrese Dirección Url" class="form-control name_list" />
+                                </div>
+                                <div class="col">
+                                </div>
+                            </div>  
+                        </div>
+                            
+                        <div id="dynamic_field_3">
+                            <div class="row mb-2">
+                                <div class="col d-flex justify-content-end">
+                                    <label>Link 3</label>
+                                </div>
+                                <div class="col">
+                                    <input type="text" name="link_3" placeholder="Ingrese Dirección Url" class="form-control name_list" />
+                                </div>
+                                <div class="col">
+                                    <button type="button" name="add_3" id="add_3" class="btn btn-success" data-toggle="tooltip" data-placement="right" title="Agregar Más">+</button>
+                                </div>
+                            </div>
+                        
+                            <div class="row mb-2">
+                                <div class="col">
+                                </div>
+                                <div class="col">
+                                    <input type="text" name="link_3" placeholder="Ingrese Dirección Url" class="form-control name_list" />
+                                </div>
+                                <div class="col">
+                                </div>
+                            </div>  
+                            <div class="row mb-2">
+                                <div class="col">
+                                </div>
+                                <div class="col">
+                                    <input type="text" name="link_3" placeholder="Ingrese Dirección Url" class="form-control name_list" />
+                                </div>
+                                <div class="col">
+                                </div>
+                            </div>  
                         </div>
 
-
-                        <button type="text" class="btn btn-primary offset-5" onclick="generarCaptcha()">Generar Capcha</button>
-
+                        <div class="row justify-content-center mt-3">
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-primary btn-block" onclick="generarCaptcha()">Generar Capcha</button>
+                            </div>
                         </div>
+
                     </form>
 
-                <div class="row mt-2 mb-3">
-                    <div class="col-md-4 ">
-                    </div>
-                    <div class="col-md-4 ">
-                        <input type="text" class="form-control form-control-sm "  value="https://localhost/5463-8746-HTDR">
-                    </div>
-                    <div class="col-md-4 ">
+                    <hr>
+
+                    <div class="row mt-2 mb-3 justify-content-center">
+
+                        <div class="col-md-6">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control "  value="https://localhost/5463-8746-HTDR">
+                                <div class="input-group-prepend">
+                                    <button type="submit" class="btn btn-primary ">Copiar Url Capcha</button>
+                                </div>
+                                <div class="input-group-prepend boder-1 ml-1">
+                                    <a href="" target="_blank" class="btn btn-primary ">Ver Capcha </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row mt-4 mb-4">
-                    <div class="col-md-6 ">
-                        <button type="submit" class="btn btn-primary offset-7">Copiar Url Capcha</button>
-                    </div>
-
-                    <div class="col-md-6 ">
-                        <a href="" target="_blank" class="btn btn-primary offset-2">Ver Capcha </a>
-                    </div>
-
-                </div>
-
             </div>
         </div>
-</div>
+
+    
+
+
+
+
 <script src="<?php echo constant('URL') ?>public/js/general.js" type="text/javascript"></script>
 
 <?php include 'views/footer.php'; ?>

@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="<?=constant('URL')?>public/css/table.css">
     <link rel="stylesheet" href="<?=constant('URL')?>public/css/estilos.css">
     <link rel="stylesheet" href="<?=constant('URL')?>public/css/animate.css">
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+
 </head>
 
 <body>

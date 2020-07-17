@@ -230,6 +230,71 @@ class CaptchaModel extends Model {
         file_put_contents($this->fileJson, $json_string);
     }
 
+    public function generarCaptcha($idCaptcha){
+
+
+        $flag = false;
+        $x=0;
+        $num=1;
+
+
+        while ($x<$num) {
+            $nuevoCaptcha = $this->generarIdCaptcha();
+            if (!in_array($nuevoCaptcha,$this->arrayJson['captchas'])) {
+                $flag = true;
+                $x++;
+            }
+        }
+
+        /*foreach($this->arrayJson['captchas'] as $key => $captcha)
+        {
+            if($captcha['captcha']==$idCaptcha)
+            {
+                $flag = false;
+            }
+        }*/
+
+        $fecha =  date("Y-m-d");
+
+
+        /* si el captcha es unico crea el registro nuevo*/
+        if($flag){
+
+            $newdata =  array (
+                'titulo' => $idCaptcha['titulo'],
+                'captcha' => $nuevoCaptcha,
+                'fechaCreacion' => $fecha,
+                'cantidadVisitas' => 0,
+                'cantidadPaises' => 0,
+                'urlCliente' => 'http://localhost/vercaptcha/',
+                'links' => [$idCaptcha['links']],
+                'paisesVisitas' => array()
+            );// for recipe
+           // return "ingrese controlados---".$idCaptcha."----".$newdata;
+
+            $this->arrayJson['captchas'][] = $newdata;
+
+        }
+
+        //return $this->generarIdCaptcha();
+
+        $json_string = json_encode($this->arrayJson);
+        $file = "data/data.json";
+        file_put_contents($file, $json_string);
+
+        return "Registro Generado";
+    }
+
+    public function generarIdCaptcha(){
+
+        $captcha1 = substr(str_shuffle("0123456789"), 0, 4);
+        $captcha2 = substr(str_shuffle("0123456789"), 0, 4);
+        $captcha3 = substr(str_shuffle("HRXYZWK"), 0, 4);
+
+        return $captchaCompleto = $captcha1."-".$captcha2."-".$captcha3;
+
+
+    }
 }
 
 

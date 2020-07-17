@@ -59,6 +59,11 @@ class CaptchaController extends Controller{
         return $this->model->obtenerTodosLosCaptchas();
     }
 
+    public function generarCaptcha($id){
+
+        return $this->model->generarCaptcha($id);
+    }
+
 
     public function apiAgregarVisita(){
 

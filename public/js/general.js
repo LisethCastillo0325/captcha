@@ -31,7 +31,7 @@ function confirmDelete(idcaptcha) {
 function adiccionarCamposLinkUno() {
 
     $('#link_1').append('<div class="form-group">\
-                        <input type="text" class="form-control form-control-sm" name="link_1[]">\
+                        <input type="text" class="form-control form-control-sm" name="campo[]">\
                         <a href="#" class="remover_campo">Remover</a>\
                         </div>');
     // Remover o div anterior
@@ -91,98 +91,67 @@ function adiccionarCamposLinkTres() {
 
 function generarCaptcha(){
 
-    var nuevoCaptcha = generarIdCaptcha();
-    //var jsonCaptcha = obtenerJsonCaptcha();
+    /*se obtienen los campos identificados por el nombre*/
+    var link_1 =document.fcaptcha.link_1;
+    var link_2 =document.fcaptcha.link_2;
+    var link_3 =document.fcaptcha.link_3;
 
-    /* se recorreo el Json de Captchas para ver que el captcha nuevo sea unico*/
+    /*se arma el array general*/
 
-console.log("nuevaao",obtenerJsonCaptcha());
-
-   // var flag =false;
-    for (var i in jsonCaptcha) {
-        console.log("capt",jsonCaptcha[i].nameTable)
+    var captcha = {
+        'titulo' : 'Otra Prueba',
+        'links' : [{
+            'linkUno': "",
+            'linkDos': "",
+            'linkTres':""
+        }]
     }
 
 
+    /*se arma cada uno de los array para almacenar la informacion de cada uno de los links*/
+    var linkUno = [];
+    var linkDos = [];
+    var linkTres = [];
 
-    /*if (flag){
-        jsonCaptcha.push(
-            {"titulo":"The Avengers",
-                "captcha":"1235-4568-XZWK",
-                "fechaCreacion":"2020-07-11",
-                "cantidadVisitas":15,
-                "cantidadPaises":3,
-                "urlCliente":"wwww.youtube.com",
-                "links":[
-                    {"linkUno":
-                            ["wwww.google.com","wwww.youtube.com","wwww.facebook.com"],
-                        "linkDos":
-                            ["wwww.hotmail.com","wwww.instagram.com","wwww.elpis.com"],
-                        "linkTres":["wwww.yahoo.com","wwww.mercadolibre.com","wwww.eltiempo.com"]
-                    }
-                ]
-            }
-        );
-    }*/
-
-
-}
-
-
-
-
-
-function generarIdCaptcha(){
-
-    letra = new Array("H", "R", "X", "Y", "Z", "W", "K");
-    numero = new Array(0,1, 2, 3, 4, 5, 6, 7, 8, 9);
-
-    var captcha1 = '';
-    var captcha2 = '';
-    var captcha3 = '';
-
-
-    for (var i = 0; i < 4; i++) {
-        elegido = Math.random() * 10;
-        elegido = Math.floor(elegido);
-        captcha1 = captcha1 + "" + numero[elegido];
+    var i
+    for (i=0;i<document.fcaptcha.link_1.length;i++){
+        if(document.fcaptcha.link_1[i].value)
+            //alert(document.fcaptcha.link_1[i].value);
+           linkUno.push(document.fcaptcha.link_1[i].value);
     }
 
-    for (var i = 0; i < 4; i++) {
-        elegido = Math.random() * 10;
-        elegido = Math.floor(elegido);
-        captcha2 = captcha2 + "" + numero[elegido];
+    for (i=0;i<document.fcaptcha.link_2.length;i++){
+        //alert(document.fcaptcha.link_2[i].value);
+
+        if(document.fcaptcha.link_2[i].value)
+            linkDos.push(document.fcaptcha.link_2[i].value);
+    }
+    for (i=0;i<document.fcaptcha.link_3.length;i++){
+       // alert(document.fcaptcha.link_3[i].value);
+
+        if(document.fcaptcha.link_3[i].value)
+            linkTres.push(document.fcaptcha.link_3[i].value);
     }
 
-    for (var i = 0; i < 4; i++) {
-        elegido = Math.random() * 7;
-        elegido = Math.floor(elegido);
-        captcha3 = captcha3 + "" + letra[elegido];
-    }
+    /*se llena el array principal con la informacion los links*/
 
-    var captcha = captcha1+"-"+captcha2+"-"+captcha3;
+    captcha.links.linkUno  = linkUno;
+    captcha.links.linkDos  = linkDos;
+    captcha.links.linkTres = linkTres;
 
-    return captcha;
-}
-
-function obtenerJsonCaptcha(){
 
     var url =document.getElementById("url").value;
 
-    var jsonCaptcha= '';
-
-
     $.ajax({
-        method: "POST",
-        url: url+"captcha/apiObtenerJsonCaptcha",
+        type: 'POST',
+        url: url+"captcha/generarCaptcha",
         data : {
-            idcaptcha:1,
+            idcaptcha: captcha,
         },
+        async: true,
         success: function(respuesta) {
 
-             jsonCaptcha = JSON.parse(respuesta);
-            console.log("ssssss--",jsonCaptcha.data);
-            return jsonCaptcha.data;
+            console.log(respuesta);
 
         },
         error: function() {
@@ -190,3 +159,54 @@ function obtenerJsonCaptcha(){
         }
     });
 }
+
+// $(function () {
+//     $('[data-toggle="tooltip"]').tooltip()
+//   });
+
+$(document).ready(function(){
+    var i=1;
+    $('#add_1').click(function(){
+        i++;
+        //$('#dynamic_field_1').append('<tr id="row'+i+'"><td></td><td><input type="text" name="link_1" placeholder="Ingrese Direccioó Url" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+        $('#dynamic_field_1').append('<div class="row mb-2" id="row_1_'+i+'"><div class="col"> </div><div class="col"><input type="text" name="link_1" placeholder="Ingrese Dirección Url" class="form-control name_list" /></div><div class="col"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove" data-toggle="tooltip" data-placement="right" title="Quitar">X</button></div></div>');
+    });
+
+    $(document).on('click', '.btn_remove', function(){
+        var button_id = $(this).attr("id");
+        $('#row_1_'+button_id+'').remove();
+    });
+
+});
+
+$(document).ready(function(){
+    var i=1;
+    $('#add_2').click(function(){
+        i++;
+        //$('#dynamic_field_2').append('<tr id="row'+i+'"><td></td><td><input type="text" name="link_2" placeholder="Ingrese Direccioó Url" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove_2">X</button></td></tr>');
+        $('#dynamic_field_2').append('<div class="row mb-2" id="row_2_'+i+'"><div class="col"> </div><div class="col"><input type="text" name="link_2" placeholder="Ingrese Dirección Url" class="form-control name_list" /></div><div class="col"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove_2" data-toggle="tooltip" data-placement="right" title="Quitar">X</button></div></div>');
+    
+    });
+
+    $(document).on('click', '.btn_remove_2', function(){
+        var button_id = $(this).attr("id");
+        $('#row_2_'+button_id+'').remove();
+    });
+
+});
+
+$(document).ready(function(){
+    var i=1;
+    $('#add_3').click(function(){
+        i++;
+        //$('#dynamic_field_3').append('<tr id="row'+i+'"><td></td><td><input type="text" name="link_2" placeholder="Ingrese Direccioó Url" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove_3">X</button></td></tr>');
+        $('#dynamic_field_3').append('<div class="row mb-2" id="row_3_'+i+'"><div class="col"> </div><div class="col"><input type="text" name="link_3" placeholder="Ingrese Dirección Url" class="form-control name_list" /></div><div class="col"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove_3" data-toggle="tooltip" data-placement="right" title="Quitar">X</button></div></div>');
+    });
+
+    $(document).on('click', '.btn_remove_3', function(){
+        var button_id = $(this).attr("id");
+        $('#row_3_'+button_id+'').remove();
+    });
+
+});
+

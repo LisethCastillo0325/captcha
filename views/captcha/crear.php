@@ -9,8 +9,6 @@ $datos = $this->resultado['captchas'];
         border-top: none;
     }
 </style>
- 
-
 
         <h3 class="titulo-tabla">Generación de Captcha </h3>
 
@@ -146,21 +144,32 @@ $datos = $this->resultado['captchas'];
 
                         <div class="col-md-6">
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control "  value="https://localhost/5463-8746-HTDR">
+                                <input type="text"  class="form-control "  value="https://localhost/5463-8746-HTDR">
+                                <p style="display:none" id="url_captcha"> https://localhost/5463-8746-HTDR</p>
                                 <div class="input-group-prepend">
-                                    <button type="submit" class="btn btn-primary ">Copiar Url Capcha</button>
+                                    <button  class="btn btn-primary " onclick="copiarAlPortapapeles('url_captcha')">Copiar Url Capcha</button>
                                 </div>
                                 <div class="input-group-prepend boder-1 ml-1">
                                     <a href="" target="_blank" class="btn btn-primary ">Ver Capcha </a>
                                 </div>
                             </div>
                         </div>
+
+                    </div>
+
+                    <div class="row mt-2 mb-3 justify-content-center">
+
+                        <div class="col-md-6">
+                            <div class="input-group mb-3">
+                                <div id="alerta" class="alert invisible"></div>
+                            </div>
+                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
 
-    
 
 
 

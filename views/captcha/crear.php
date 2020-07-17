@@ -144,13 +144,15 @@ $datos = $this->resultado['captchas'];
 
                         <div class="col-md-6">
                             <div class="input-group mb-3">
-                                <input type="text"  class="form-control "  value="https://localhost/5463-8746-HTDR">
-                                <p style="display:none" id="url_captcha"> https://localhost/5463-8746-HTDR</p>
+                                <input type="text"  class="form-control "  value="" id="url_captcha_text">
+                                <p style="display:block" ></p>
+                                <div id="url_captcha"></div>
                                 <div class="input-group-prepend">
-                                    <button  class="btn btn-primary " onclick="copiarAlPortapapeles('url_captcha')">Copiar Url Capcha</button>
+                                    <button  class="btn btn-primary " onclick="copiarAlPortapapeles()">Copiar Url Capcha</button>
                                 </div>
                                 <div class="input-group-prepend boder-1 ml-1">
-                                    <a href="" target="_blank" class="btn btn-primary ">Ver Capcha </a>
+                                   <button  class="btn btn-primary " onclick="verCaptcha('url_captcha')">Ver Capcha</button>
+
                                 </div>
                             </div>
                         </div>
@@ -175,5 +177,6 @@ $datos = $this->resultado['captchas'];
 
 
 <script src="<?php echo constant('URL') ?>public/js/general.js" type="text/javascript"></script>
+<script src="<?php echo constant('URL') ?>public/js/copiarTexto.js" type="text/javascript"></script>
 
 <?php include 'views/footer.php'; ?>

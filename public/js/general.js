@@ -34,6 +34,11 @@ function generarCaptcha(){
     /*se obtienen los campos identificados por el nombre*/
     var titulo =document.fcaptcha.titulo.value;
 
+    if(titulo =='' || titulo=='undefined'){
+        alerta("error","Error",'Debe ingresar el Título');
+       return true;
+    }
+
     var link_1 =document.fcaptcha.link_1;
     var link_2 =document.fcaptcha.link_2;
     var link_3 =document.fcaptcha.link_3;
@@ -74,10 +79,18 @@ function generarCaptcha(){
         }
     }
 
+
+    if(linkUno =='' && linkDos =='' && linkTres ==''){
+        alerta("error","Error",'Debe ingresar como minimo una Dirección url');
+        return true;
+    }
+
     /*se llena el array principal con la informacion los links*/
     captcha.links.linkUno  = linkUno;
     captcha.links.linkDos  = linkDos;
     captcha.links.linkTres = linkTres;
+
+
 
 
     var url =document.getElementById("url").value;
@@ -92,10 +105,16 @@ function generarCaptcha(){
         success: function(data) {
 
             resultado = JSON.parse(data);
+
+           var url_captcha= resultado.data.urlCliente + ""+ resultado.data.captcha;
+
             if(resultado){
                 if(! resultado.OK){
                     alerta("error","Error",resultado.mensaje);
                 }else{
+                    document.getElementById('url_captcha_text').value = url_captcha;
+                    document.getElementById('url_captcha').value = url_captcha;
+
                     alerta("success","Registro Generado satisfactoriamente!","");
                 }
             }
@@ -183,18 +202,13 @@ function modificarCaptcha(){
     var i=0;
     for (i=0;i<document.fcaptcha.link_1.length;i++){
 
-         alert(document.fcaptcha.link_1[i].value);
-
         if(document.fcaptcha.link_1[i].value){
             linkUno.push(document.fcaptcha.link_1[i].value);
         }
     }
-     alert(document.fcaptcha.link_2.length);
     for (i=0;i<document.fcaptcha.link_2.length;i++){
 
         if(document.fcaptcha.link_2[i].value){
-            alert("valor",document.fcaptcha.link_2[i].value);
-
             linkDos.push(document.fcaptcha.link_2[i].value);
         }
     }
@@ -249,55 +263,8 @@ function alerta(tipo, titulo, mensaje){
     });
 }
 
+function verCaptcha() {
+    var url_captcha = document.getElementById('url_captcha_text').value;
 
-
-///////
-// Auxiliares para mostrar y ocultar mensajes
-///////
-var divAlerta = document.getElementById('alerta');
-
-function copiarAlPortapapeles(id_elemento) {
-
-    var aux = document.createElement("input");
-    aux.setAttribute("value", document.getElementById(id_elemento).innerHTML);
-    document.body.appendChild(aux);
-    aux.select();
-
-    try {
-        var res = document.execCommand('copy'); //Intento el copiado
-        if (res)
-            exito();
-        else
-            fracaso();
-
-        mostrarAlerta();
-    }
-    catch(ex) {
-        excepcion();
-    }
-    document.body.removeChild(aux);
-}
-
-function exito() {
-    divAlerta.innerText = '¡¡Código copiado al portapapeles!!';
-    divAlerta.classList.add('alert-success');
-}
-
-function fracaso() {
-    divAlerta.innerText = '¡¡Ha fallado el copiado al portapapeles!!';
-    divAlerta.classList.add('alert-warning');
-}
-function mostrarAlerta() {
-    divAlerta.classList.remove('invisible');
-    divAlerta.classList.add('visible');
-    setTimeout(ocultarAlerta, 1500);
-}
-function excepcion() {
-    divAlerta.innerText = 'Se ha producido un error al copiar al portapaples';
-    divAlerta.classList.add('alert-danger');
-}
-function ocultarAlerta() {
-    divAlerta.innerText = '';
-    divAlerta.classList.remove('alert-success', 'alert-warning', 'alert-danger', 'visible');
-    divAlerta.classList.add('invisible');
+    window.open (url_captcha);
 }

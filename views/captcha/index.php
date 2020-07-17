@@ -34,8 +34,8 @@
                         <td><?php echo $dato['titulo'];?></td>
                         <td><?php echo $dato['captcha'];?></td>
                         <td><?php echo $dato['urlCliente'];?></td>
-                        <td><?php echo $dato['cantidadVisitas'];?></td>
-                        <td>
+                        <td class="text-center"><?php echo $dato['cantidadVisitas'];?></td>
+                        <td class="text-center">
                             <a href="<?=constant('URL') ?>captcha/detalle/<?=$dato['captcha']?>"   data-toggle="tooltip" title="Ver captcha" class="btn btn-sm btn-default"> <?php echo $dato['cantidadPaises'];?> </a>
                         </td>
                         <td>

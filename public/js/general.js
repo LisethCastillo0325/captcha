@@ -92,6 +92,8 @@ function adiccionarCamposLinkTres() {
 function generarCaptcha(){
 
     /*se obtienen los campos identificados por el nombre*/
+    var titulo =document.fcaptcha.titulo.value;
+
     var link_1 =document.fcaptcha.link_1;
     var link_2 =document.fcaptcha.link_2;
     var link_3 =document.fcaptcha.link_3;
@@ -99,7 +101,7 @@ function generarCaptcha(){
     /*se arma el array general*/
 
     var captcha = {
-        'titulo' : 'Otra Prueba',
+        'titulo' : titulo,
         'links' : [{
             'linkUno': "",
             'linkDos': "",
@@ -213,3 +215,80 @@ $(document).ready(function(){
 
 });
 
+
+
+function modificarCaptcha(){
+
+    /*se obtienen los campos identificados por el nombre*/
+    var titulo  = document.fcaptcha.titulo.value;
+    var captcha = document.fcaptcha.captcha.value;
+
+    var link_1 =document.fcaptcha.link_1.value;
+    var link_2 =document.fcaptcha.link_2;
+    var link_3 =document.fcaptcha.link_3;
+
+alert(document.fcaptcha.link_1.length);
+    /*se arma el array general*/
+
+    var captcha = {
+        'titulo' : titulo,
+        'captcha' : captcha,
+        'links' : [{
+            'linkUno': "",
+            'linkDos': "",
+            'linkTres':""
+        }]
+    }
+
+
+    /*se arma cada uno de los array para almacenar la informacion de cada uno de los links*/
+    var linkUno = [];
+    var linkDos = [];
+    var linkTres = [];
+
+    var i
+    for (i=0;i<document.fcaptcha.link_1.length;i++){
+
+         alert(document.fcaptcha.link_1[i].value);
+
+        if(document.fcaptcha.link_1[i].value)
+        linkUno.push(document.fcaptcha.link_1[i].value);
+    }
+
+    for (i=0;i<document.fcaptcha.link_2.length;i++){
+
+        if(document.fcaptcha.link_2[i].value)
+            linkDos.push(document.fcaptcha.link_2[i].value);
+    }
+    for (i=0;i<document.fcaptcha.link_3.length;i++){
+
+        if(document.fcaptcha.link_3[i].value)
+            linkTres.push(document.fcaptcha.link_3[i].value);
+    }
+
+    /*se llena el array principal con la informacion los links*/
+
+    captcha.links.linkUno  = linkUno;
+    captcha.links.linkDos  = linkDos;
+    captcha.links.linkTres = linkTres;
+
+
+    var url =document.getElementById("url").value;
+
+    $.ajax({
+        type: 'POST',
+        url: url+"captcha/modificarCaptcha",
+        data : {
+            idcaptcha: captcha,
+        },
+        async: true,
+        success: function(respuesta) {
+
+            console.log(respuesta);
+
+        },
+        error: function() {
+            console.error("No es posible completar la operación");
+        }
+    });
+}

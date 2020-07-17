@@ -1,6 +1,7 @@
 <?php include 'views/header.php';
-    $datos = $this->resultado['captchas'];
-    $links = $datos[0]['links'][0];
+
+    $datos = $this->resultado;
+    $links = $datos['links'][0];
 
 ?>
 
@@ -19,7 +20,14 @@
                         <div class="form-group">
                             <form id="frm-crear-captcha" name="fcaptcha">
                                 <input type="hidden" id="url" value="<?php echo constant('URL') ?>" class="form-control form-control-sm" >
+                                <input type="hidden" class="form-control" id="captcha" name="captcha" value="<?php echo $datos['captcha'] ?>" >
 
+                                <div class="form-group row">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Título</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="titulo" name="titulo" value="<?php echo $datos['titulo'] ?>" >
+                                    </div>
+                                </div>
                                 <div class="table-responsive">
 
                                 <!-- INICIO TABLA LINK 1 -->
@@ -27,11 +35,15 @@
 
                                         <?php
                                         /* Si el link no tiene urls asociadas se muestra el primer campola fila*/
-                                        if(sizeof($links['linkUno']) == 0){ ?>
+
+                                        echo "cantidad".sizeof($links['linkUno']);
+                                        echo "<br>cantidad".$links['linkUno'][0];
+
+                                        if(sizeof($links['linkUno']) == 0 || $links['linkUno']==''){ ?>
 
                                             <tr >
                                                 <td><label>Link 1</label></td>
-                                                <td><input type="text" name="link_1"  placeholder="Ingrese Dirección Url" class="form-control name_list" /></td>
+                                                <td><input type="text" name="link_1"  placeholder="Ingrese Direccizzzón Url" class="form-control name_list" /></td>
                                                 <td><button type="button" name="add_1" id="add_1" class="btn btn-success">Agregar Más</button></td>
                                             </tr>
 
@@ -44,7 +56,7 @@
 
                                                 <tr >
                                                     <td><label>Link 1</label></td>
-                                                    <td><input type="text" name="link_1" value="<?php echo $links['linkUno'][$i] ?>" placeholder="Ingrese Dirección Url" class="form-control name_list" /></td>
+                                                    <td><input type="text" name="link_1" value="<?php echo $links['linkUno'][$i] ?>" placeholder="Ingsssrese Dirección Url" class="form-control name_list" /></td>
                                                     <td><button type="button" name="add_1" id="add_1" class="btn btn-success">Agregar Más</button></td>
                                                 </tr>
 
@@ -75,10 +87,10 @@
                                     <table class="table table-bordered" id="dynamic_field_2">
                                         <?php
                                         /* Si el link no tiene urls asociadas se muestra el primer campola fila*/
-                                        if(sizeof($links['linkDos']) == 0){ ?>
+                                        if(sizeof($links['linkDos']) == 0 || $links['linkDos']==''){ ?>
 
                                             <tr >
-                                                <td><label>Link 1</label></td>
+                                                <td><label>Link 2</label></td>
                                                 <td><input type="text" name="link_2"  placeholder="Ingrese Dirección Url" class="form-control name_list" /></td>
                                                 <td><button type="button" name="add_2" id="add_2" class="btn btn-success">Agregar Más</button></td>
                                             </tr>
@@ -92,7 +104,7 @@
                                                 ?>
 
                                                 <tr>
-                                                    <td><label>Link 1</label></td>
+                                                    <td><label>Link 2</label></td>
                                                     <td><input type="text" name="link_1" value="<?php echo $links['linkDos'][$i] ?>" placeholder="Ingrese Dirección Url" class="form-control name_list" /></td>
                                                     <td><button type="button" name="add_2" id="add_2" class="btn btn-success">Agregar Más</button></td>
                                                 </tr>
@@ -121,10 +133,10 @@
                                     <table class="table table-bordered" id="dynamic_field_3">
                                         <?php
                                         /* Si el link no tiene urls asociadas se muestra el primer campola fila*/
-                                        if(sizeof($links['linkTres']) == 0){ ?>
+                                        if(sizeof($links['linkTres']) == 0 || $links['linkTres']==''){ ?>
 
                                             <tr >
-                                                <td><label>Link 1</label></td>
+                                                <td><label>Link 3</label></td>
                                                 <td><input type="text" name="link_3"  placeholder="Ingrese Dirección Url" class="form-control name_list" /></td>
                                                 <td><button type="button" name="add_3" id="add_3" class="btn btn-success">Agregar Más</button></td>
                                             </tr>
@@ -137,7 +149,7 @@
                                                 ?>
 
                                                 <tr>
-                                                    <td><label>Link 1</label></td>
+                                                    <td><label>Link 3</label></td>
                                                     <td><input type="text" name="link_3" value="<?php echo $links['linkTres'][$i] ?>" placeholder="Ingrese Dirección Url" class="form-control name_list" /></td>
                                                     <td><button type="button" name="add_3" id="add_3" class="btn btn-success">Agregar Más</button></td>
                                                 </tr>
@@ -178,9 +190,6 @@
 
 
     <script src="<?php echo constant('URL') ?>public/js/general.js" type="text/javascript"></script>
-
-<?php include 'views/footer.php'; ?>
-
 
 
 <?php include 'views/footer.php'; ?>

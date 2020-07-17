@@ -246,13 +246,6 @@ class CaptchaModel extends Model {
             }
         }
 
-        /*foreach($this->arrayJson['captchas'] as $key => $captcha)
-        {
-            if($captcha['captcha']==$idCaptcha)
-            {
-                $flag = false;
-            }
-        }*/
 
         $fecha =  date("Y-m-d");
 
@@ -276,13 +269,12 @@ class CaptchaModel extends Model {
 
         }
 
-        //return $this->generarIdCaptcha();
 
         $json_string = json_encode($this->arrayJson);
         $file = "data/data.json";
         file_put_contents($file, $json_string);
 
-        return "Registro Generado";
+        return "Registro Generado Satisfactoriamente";
     }
 
     public function generarIdCaptcha(){
@@ -294,6 +286,27 @@ class CaptchaModel extends Model {
         return $captchaCompleto = $captcha1."-".$captcha2."-".$captcha3;
 
 
+    }
+
+    public function modificarCaptcha($idCaptcha){
+
+
+        foreach($this->arrayJson['captchas'] as $key => $captcha)
+        {
+            if($captcha['captcha']==$idCaptcha['captcha'])
+            {
+               $this->arrayJson['captchas'][$key]['titulo'] = $idCaptcha['titulo'] ;
+               $this->arrayJson['captchas'][$key]['links'] = $idCaptcha['links'];
+            }
+        }
+
+        return $idCaptcha;
+
+        $json_string = json_encode($this->arrayJson);
+        $file = "data/data.json";
+        file_put_contents($file, $json_string);
+
+        return "Registro Actualizado Satisfactoriamente";
     }
 }
 

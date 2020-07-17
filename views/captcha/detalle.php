@@ -28,7 +28,7 @@
 
 
             <div class="col-6 mb-3">
-                <h4 class="">Titulo : <?php echo $datoCaptcha['titulo']; ?></h4>
+                <h4 class="">Título : <?php echo $datoCaptcha['titulo']; ?></h4>
             </div>
             <div class="col-6 mb-3">
                 <h4 class="">Captcha : : <?php echo $datoCaptcha['captcha']; ?> </h4>
@@ -41,7 +41,7 @@
                 <table class="table">
                     <thead class="thead-dark">
                     <tr>
-                        <th scope="col" class="text-center">Pais</th>
+                        <th scope="col" class="text-center">País</th>
                         <th scope="col" class="text-center">Región</th>
                         <th scope="col" class="text-center">Ciudad</th>
                         <th scope="col" class="text-center">Cant. Visitas</th>
@@ -82,7 +82,7 @@
                                                         <thead class="thead-dark">
                                                         <tr>
                                                             <th scope="col" class="text-center">Id</th>
-                                                            <th scope="col" class="text-center">Direccion Ip</th>
+                                                            <th scope="col" class="text-center">Dirección Ip</th>
                                                             <th scope="col" class="text-center">Fecha - Hora</th>
 
                                                         </tr>

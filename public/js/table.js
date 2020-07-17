@@ -4,7 +4,7 @@ var idioma=
         "sProcessing":     "Procesando...",
         "sLengthMenu":     "Mostrar _MENU_ registros",
         "sZeroRecords":    "No se encontraron resultados",
-        "sEmptyTable":     "NingÃºn dato disponible en esta tabla",
+        "sEmptyTable":     "Ningun dato disponible en esta tabla",
         "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
         "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
         "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
@@ -15,7 +15,7 @@ var idioma=
         "sLoadingRecords": "Cargando...",
         "oPaginate": {
             "sFirst":    "Primero",
-            "sLast":     "Ãšltimo",
+            "sLast":     "Ultimo",
             "sNext":     "Siguiente",
             "sPrevious": "Anterior"
         },
@@ -71,7 +71,7 @@ $(document).ready(function() {
             buttons: [
 
 
-                {
+              /*  {
                     extend:    'copyHtml5',
                     text:      '<i class="fa fa-clipboard"></i>Copiar',
                     title:'Titulo de tabla copiada',
@@ -80,16 +80,16 @@ $(document).ready(function() {
                     exportOptions: {
                         columns: [ 0, 1 ]
                     }
-                },
+                },*/
 
                 {
                     extend:    'pdfHtml5',
                     text:      '<i class="fa fa-file-pdf-o"></i>PDF',
-                    title:'Titulo de tabla en pdf',
+                    title:'Listado de Captcha Generados',
                     titleAttr: 'PDF',
                     className: 'btn btn-app export pdf',
                     exportOptions: {
-                        columns: [ 0, 1 ]
+                        columns: [ 0, 1, 2, 3, 4, 5 ]
                     },
                     customize:function(doc) {
 
@@ -99,15 +99,15 @@ $(document).ready(function() {
                             alignment: 'center'
                         }
                         doc.styles['td:nth-child(2)'] = {
-                            width: '100px',
-                            'max-width': '100px'
+                            width: '150px',
+                            'max-width': '150px'
                         },
                             doc.styles.tableHeader = {
                                 fillColor:'#4c8aa0',
                                 color:'white',
                                 alignment:'center'
                             },
-                            doc.content[1].margin = [ 100, 0, 100, 0 ]
+                            doc.content[1].margin = [ 50, 0, 250, 0 ]
 
                     }
 
@@ -116,24 +116,24 @@ $(document).ready(function() {
                 {
                     extend:    'excelHtml5',
                     text:      '<i class="fa fa-file-excel-o"></i>Excel',
-                    title:'Titulo de tabla en excel',
+                    title:'Listado de Captcha Generados',
                     titleAttr: 'Excel',
                     className: 'btn btn-app export excel',
                     exportOptions: {
-                        columns: [ 0, 1 ]
+                        columns: [ 0, 1, 2, 3, 4, 5]
                     },
                 },
                 {
                     extend:    'csvHtml5',
                     text:      '<i class="fa fa-file-text-o"></i>CSV',
-                    title:'Titulo de tabla en CSV',
+                    title:'Listado de Captcha Generados',
                     titleAttr: 'CSV',
                     className: 'btn btn-app export csv',
                     exportOptions: {
-                        columns: [ 0, 1 ]
+                        columns: [ 0, 1, 2, 3, 4, 5 ]
                     }
                 },
-                {
+               /* {
                     extend:    'print',
                     text:      '<i class="fa fa-print"></i>Imprimir',
                     title:'Titulo de tabla en impresion',
@@ -142,7 +142,7 @@ $(document).ready(function() {
                     exportOptions: {
                         columns: [ 0, 1 ]
                     }
-                },
+                },*/
                 {
                     extend:    'pageLength',
                     titleAttr: 'Registros a mostrar',

@@ -2,7 +2,6 @@
 $datos = $this->resultado['captchas'];
 
 ?>
-<script type="text/javascript">
 
 </script>
 <style>

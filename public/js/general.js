@@ -105,7 +105,7 @@ function generarCaptcha(){
             'linkDos': "",
             'linkTres':""
         }]
-    }
+    };
 
 
     /*se arma cada uno de los array para almacenar la informacion de cada uno de los links*/
@@ -113,7 +113,7 @@ function generarCaptcha(){
     var linkDos = [];
     var linkTres = [];
 
-    var i
+    var i;
     for (i=0;i<document.fcaptcha.link_1.length;i++){
         if(document.fcaptcha.link_1[i].value)
             //alert(document.fcaptcha.link_1[i].value);
@@ -134,7 +134,10 @@ function generarCaptcha(){
     }
 
     /*se llena el array principal con la informacion los links*/
-
+    console.log(linkUno);
+    console.log(linkDos);
+    console.log(linkDos);
+    
     captcha.links.linkUno  = linkUno;
     captcha.links.linkDos  = linkDos;
     captcha.links.linkTres = linkTres;

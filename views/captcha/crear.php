@@ -19,6 +19,12 @@ $datos = $this->resultado['captchas'];
                             <form id="frm-crear-captcha" name="fcaptcha">
                                 <input type="hidden" id="url" value="<?php echo constant('URL') ?>" class="form-control form-control-sm" >
 
+                                <div class="form-group row">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Título</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="titulo" name="titulo" required>
+                                    </div>
+                                </div>
 
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dynamic_field_1">

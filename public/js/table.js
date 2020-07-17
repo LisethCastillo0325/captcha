@@ -50,7 +50,7 @@ $(document).ready(function() {
         "info": true,
         "autoWidth": true,
         "language": idioma,
-        "lengthMenu": [[5,10,20, -1],[5,10,50,"Mostrar Todo"]],
+        "lengthMenu": [[5,10,50, -1],[5,10,50,"Mostrar Todo"]],
         dom: 'Bfrt<"col-md-6 inline"i> <"col-md-6 inline"p>',
 
 

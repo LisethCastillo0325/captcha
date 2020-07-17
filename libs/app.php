@@ -22,19 +22,18 @@ class App{
             echo json_encode(array('OK'=>false, 'mensaje'=>'recurso no encontrado', 'data'=>null, 'error' => 404));
         }else{
             require_once($archivoController);
-            $nombreController = ucwords(str_replace(".", "", $nombreController));
-            $nombreFunction   = $url[1];
+            $nombreController = str_replace(" ", "", ucwords(str_replace(".", " ", $nombreController)));
+            $nombreFunction   = lcfirst(str_replace(" ", "", ucwords(str_replace("-"," ", $url[1]))));
             $controller       = new $nombreController();
 
             if(! ($controller instanceof MainController)  && !isset($nombreFunction)) {
                 echo json_encode(array('OK'=>false, 'mensaje'=>'recurso no encontrado', 'data'=>null, 'error' => 404));
             }else{
                 if(isset($nombreFunction)){
-                
                     if(! method_exists($controller, $nombreFunction)){
                         echo json_encode(array('OK'=>false, 'mensaje'=>'recurso no encontrado', 'data'=>null, 'error' => 404));
                     }else{
-                      
+                        
                         if(isset($_REQUEST['idcaptcha']) ){
                             $idCaptcha = $_REQUEST['idcaptcha'];
                             $data = $controller->$nombreFunction($idCaptcha);

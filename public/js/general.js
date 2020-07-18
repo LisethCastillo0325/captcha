@@ -12,7 +12,7 @@ function confirmDelete(idcaptcha) {
         cancelButtonText: "Cancelar!",
 
     }).then(result => {
-        swal("Eliminado!", "Su Registro ha sido eliminado.", "success");
+        //swal("Eliminado!", "Su Registro ha sido eliminado.", "success");
         if (result.value) {
 
             //window.location.href="http://localhost/captchamvc/captcha/eliminar/"+idcaptcha;
@@ -205,24 +205,47 @@ function modificarCaptcha(){
     var linkTres = [];
 
     var i=0;
-    for (i=0;i<document.fcaptcha.link_1.length;i++){
 
-        if(document.fcaptcha.link_1[i].value){
-            linkUno.push(document.fcaptcha.link_1[i].value);
+    /*link 1*/
+    if(document.fcaptcha.link_1.length >0){
+
+        for (i=0;i<document.fcaptcha.link_1.length;i++){
+
+            if(document.fcaptcha.link_1[i].value){
+                linkUno.push(document.fcaptcha.link_1[i].value);
+            }
         }
+    }else if(document.fcaptcha.link_1.value !='') {
+        linkUno.push(document.fcaptcha.link_1.value);
     }
-    for (i=0;i<document.fcaptcha.link_2.length;i++){
+
+    /*link 2*/
+    if(document.fcaptcha.link_2.length >0){
+
+
+        for (i=0;i<document.fcaptcha.link_2.length;i++){
 
         if(document.fcaptcha.link_2[i].value){
             linkDos.push(document.fcaptcha.link_2[i].value);
         }
     }
-    for (i=0;i<document.fcaptcha.link_3.length;i++){
-
-        if(document.fcaptcha.link_3[i].value){
-            linkTres.push(document.fcaptcha.link_3[i].value);
-        }
+    }else if(document.fcaptcha.link_2.value !='') {
+        linkDos.push(document.fcaptcha.link_2.value);
     }
+
+    /*link 3*/
+    if(document.fcaptcha.link_3.length >0){
+        for (i=0;i<document.fcaptcha.link_3.length;i++){
+
+            if(document.fcaptcha.link_3[i].value){
+                linkTres.push(document.fcaptcha.link_3[i].value);
+            }
+        }
+
+    }else if(document.fcaptcha.link_3.value !=''){
+        linkTres.push(document.fcaptcha.link_3.value);
+    }
+
 
 
     if(linkUno =='' && linkDos =='' && linkTres ==''){
@@ -237,6 +260,8 @@ function modificarCaptcha(){
 
 
     var url =document.getElementById("url").value;
+
+    console.log(captcha);
 
     $.ajax({
         type: 'POST',

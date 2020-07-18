@@ -9,7 +9,7 @@ class MainController extends Controller{
 
 
     public function obtenerPaginaPorDefecto(){
-        if(isset($_SESSION['user'])){
+        if(isset($_SESSION['usuario'])){
             $this->view->render('main/index');
         }else{
             $this->view->render('login/login');

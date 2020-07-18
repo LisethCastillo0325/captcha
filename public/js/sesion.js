@@ -2,7 +2,7 @@ function cerrarSesion(){
     var datosform = $("#frm-login").serialize();
     $.ajax({
         type: 'POST',
-        url: $("#urlApp").val()+'login/cerrarSesion/',
+        url: $("#url").val()+'login/cerrarSesion/',
         data: datosform,
         success: function(data){
             console.log(data);
@@ -11,7 +11,7 @@ function cerrarSesion(){
                 if(! resultado.OK){
                     alerta("error","Error",resultado.mensaje);
                 }else{
-                    location.href = $("#urlApp").val();
+                    location.href = $("#url").val();
                 }
            }
            console.log(resultado);

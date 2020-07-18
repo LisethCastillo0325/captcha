@@ -7,11 +7,11 @@ class UserSession{
     }
 
     public static function setCurrentUser($user){
-        $_SESSION['user'] = $user;
+        $_SESSION['usuario'] = $user;
     }
 
     public static function getCurrentUser(){
-        return $_SESSION['user'];
+        return $_SESSION['usuario'];
     }
 
     public static function closeSession(){

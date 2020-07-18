@@ -9,13 +9,13 @@
                 <a class="nav-link" href="<?php echo constant('URL') ?>">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link"  href="<?php echo constant('URL') ?>captcha/crear">Crear</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="<?php echo constant('URL') ?>captcha/listar">Listar</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link"  href="<?php echo constant('URL') ?>captcha/crear">Crear</a>
+            </li>
         </ul>
-        <input type="hidden" id="urlApp" value="<?=constant('URL')?>" >
+        <input type="hidden" id="url" value="<?=constant('URL')?>" >
         <form  id="frm-login" onsubmit="return cerrarSesion();">
             <input type="hidden" name="cerrarsesion" value="cerrarsesion"> 
             <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Cerrar Sesión</button>

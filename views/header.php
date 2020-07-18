@@ -23,7 +23,7 @@
 <body>
 
 <?php 
-    if(! isset($_SESSION['user'])){
+    if(! isset($_SESSION['usuario'])){
         header ("Location: ".constant('URL')."");
     }
     include 'navbar.php'; 

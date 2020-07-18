@@ -30,3 +30,9 @@ function mostrarAlerta() {
     divAlerta.classList.add('visible');
     setTimeout(ocultarAlerta, 1500);
 }
+
+function ocultarAlerta() {
+    divAlerta.innerText = '';
+    divAlerta.classList.remove('alert-success', 'alert-warning', 'alert-danger', 'visible');
+    divAlerta.classList.add('invisible');
+}

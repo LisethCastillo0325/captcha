@@ -1,5 +1,7 @@
 function confirmDelete(idcaptcha) {
 
+    var url =document.getElementById("url").value;
+
     swal({
         title: "Atención!!!",
         text: "¿Esta seguro de eliminar el registro?",
@@ -14,7 +16,7 @@ function confirmDelete(idcaptcha) {
         if (result.value) {
 
             //window.location.href="http://localhost/captchamvc/captcha/eliminar/"+idcaptcha;
-            $.post("http://localhost/captchamvc/captcha/eliminar/" + idcaptcha);
+            $.post(url+"captcha/eliminar/" + idcaptcha);
             location.reload();
 
         } else if (
@@ -113,7 +115,6 @@ function generarCaptcha(){
                     alerta("error","Error",resultado.mensaje);
                 }else{
                     document.getElementById('url_captcha_text').value = url_captcha;
-                    document.getElementById('url_captcha').value = url_captcha;
 
                     alerta("success","Registro Generado satisfactoriamente!","");
                 }

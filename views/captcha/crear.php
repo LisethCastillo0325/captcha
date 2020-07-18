@@ -145,8 +145,6 @@ $datos = $this->resultado['captchas'];
                         <div class="col-md-6">
                             <div class="input-group mb-3">
                                 <input type="text"  class="form-control "   id="url_captcha_text" readOnly>
-                                <p style="display:block" ></p>
-                                <div id="url_captcha"></div>
                                 <div class="input-group-prepend">
                                     <button  class="btn btn-primary portapapeles"
         	                               data-clipboard-target="#url_captcha_text" >Copiar Url Captcha</button>

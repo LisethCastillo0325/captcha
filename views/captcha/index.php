@@ -11,6 +11,7 @@
         <div class="col-12" >
             <h3 class="titulo-tabla">Listado  de Captcha Generados </h3>
 
+            <input type="hidden" id="url" value="<?php echo constant('URL') ?>" class="form-control form-control-sm" >
 
             <table id="ejemplo" class="table table-striped table-bordered " style="width:100%">
                 <thead>

@@ -25,7 +25,7 @@ $datos = $this->resultado['captchas'];
                                     <label>Titulo</label>
                                 </div>
                                 <div class="col">
-                                        <input type="text" class="form-control" id="titulo" name="titulo" value="<?php echo $datos['titulo'] ?>" >
+                                        <input type="text" class="form-control" id="titulo" name="titulo"  >
                                 </div>
                                 <div class="col">
                                 </div>

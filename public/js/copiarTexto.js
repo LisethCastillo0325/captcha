@@ -6,7 +6,7 @@ var divAlerta = document.getElementById('alerta');
 function copiarAlPortapapeles() {
 
     var aux = document.createElement("input");
-    aux.setAttribute("value", document.getElementById('url_captcha').innerHTML);
+    aux.setAttribute("value", document.getElementById('url_captcha_text').innerHTML);
     document.body.appendChild(aux);
     aux.select();
 

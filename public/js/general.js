@@ -180,6 +180,10 @@ function modificarCaptcha(){
     var titulo  = document.fcaptcha.titulo.value;
     var captcha = document.fcaptcha.captcha.value;
 
+    if(titulo =='' || titulo=='undefined'){
+        alerta("error","Error",'Debe ingresar el Título');
+        return true;
+    }
 
     /*se arma el array general*/
 
@@ -219,6 +223,11 @@ function modificarCaptcha(){
         }
     }
 
+
+    if(linkUno =='' && linkDos =='' && linkTres ==''){
+        alerta("error","Error",'Debe ingresar como minimo una Dirección url');
+        return true;
+    }
     /*se llena el array principal con la informacion los links*/
 
     captcha.links.linkUno  = linkUno;

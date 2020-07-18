@@ -12,7 +12,7 @@
 
             <div class="col-12" >
                 <div class="table-responsive">
-                    <table id="ejemplo" class="table table-striped table-bordered table-responsive" style="width:100%">
+                    <table id="ejemplo" class="table table-striped table-bordered " style="width:100%">
                         <thead>
                         <tr>
                             <th>Fecha</th>
@@ -22,7 +22,6 @@
                             <th>Cant. Visitas</th>
                             <th>Cant. Visitas Por País</th>
                             <th>Acciones</th>
-
                         </tr>
                         </thead>
                         <tbody>

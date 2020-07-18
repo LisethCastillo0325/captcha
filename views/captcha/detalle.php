@@ -29,7 +29,7 @@
                     <div id="collapseTable_<?=$id_tabla;?>" class="collapse <?=$class_show?> justify-content-left " aria-labelledby="headingTable_<?=$id_tabla;?>" data-parent="#accordionExample">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered tabla-detalle-captcha table-responsive" style="width:100%">
+                                <table class="table table-striped table-bordered tabla-detalle-captcha" style="width:100%">
                                     <thead class="thead-dark">
                                     <tr>
                                         <th scope="col" class="text-center">País</th>

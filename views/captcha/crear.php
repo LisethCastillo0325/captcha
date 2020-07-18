@@ -10,10 +10,16 @@ $datos = $this->resultado['captchas'];
     }
 </style>
 
-        <h3 class="titulo-tabla">Generación de Captcha </h3>
 
-        <hr>
-        <div class="row justify-content-center">
+<div class="card mt-5 mb-5 " >
+    <div class="card-body ">
+        <h3 class="card-title">Generación de Captcha</h3>
+        <h6 class="card-subtitle mb-2 text-muted">
+            Formulario para crear un nuevo captcha, recuerde ingresar las direcciones URL con los protocolos https:// o http:// 
+        </h6>
+        <hr class="mb-3">
+       
+        <div class="row ">
             <div class="col-md-12">
                 <!-- Contenido -->
                 <div class="form-group">
@@ -25,14 +31,14 @@ $datos = $this->resultado['captchas'];
                                     <label>Titulo</label>
                                 </div>
                                 <div class="col">
-                                        <input type="text" class="form-control" id="titulo" name="titulo"  >
+                                        <input type="text" class="form-control" id="titulo" placeholder="Título" name="titulo"  >
                                 </div>
                                 <div class="col">
                                 </div>
                             </div>
 
                         <div id="dynamic_field_1">
-                            <div class="row mb-2">
+                            <div class="row mb-1">
                                 <div class="col d-flex justify-content-end">
                                     <label>Link 1</label>
                                 </div>
@@ -44,7 +50,7 @@ $datos = $this->resultado['captchas'];
                                 </div>
                             </div>
                         
-                            <div class="row mb-2">
+                            <div class="row mb-1">
                                 <div class="col">
                                 </div>
                                 <div class="col">
@@ -53,7 +59,7 @@ $datos = $this->resultado['captchas'];
                                 <div class="col">
                                 </div>
                             </div>  
-                            <div class="row mb-2">
+                            <div class="row mb-1">
                                 <div class="col">
                                 </div>
                                 <div class="col">
@@ -65,7 +71,7 @@ $datos = $this->resultado['captchas'];
                         </div>
 
                         <div id="dynamic_field_2">
-                            <div class="row mb-2">
+                            <div class="row mt-3">
                                 <div class="col d-flex justify-content-end">
                                     <label>Link 2</label>
                                 </div>
@@ -77,7 +83,7 @@ $datos = $this->resultado['captchas'];
                                 </div>
                             </div>
                         
-                            <div class="row mb-2">
+                            <div class="row mt-1">
                                 <div class="col">
                                 </div>
                                 <div class="col">
@@ -86,7 +92,7 @@ $datos = $this->resultado['captchas'];
                                 <div class="col">
                                 </div>
                             </div>  
-                            <div class="row mb-2">
+                            <div class="row mt-1">
                                 <div class="col">
                                 </div>
                                 <div class="col">
@@ -98,7 +104,7 @@ $datos = $this->resultado['captchas'];
                         </div>
                             
                         <div id="dynamic_field_3">
-                            <div class="row mb-2">
+                            <div class="row mt-2">
                                 <div class="col d-flex justify-content-end">
                                     <label>Link 3</label>
                                 </div>
@@ -110,7 +116,7 @@ $datos = $this->resultado['captchas'];
                                 </div>
                             </div>
                         
-                            <div class="row mb-2">
+                            <div class="row mt-1">
                                 <div class="col">
                                 </div>
                                 <div class="col">
@@ -119,7 +125,7 @@ $datos = $this->resultado['captchas'];
                                 <div class="col">
                                 </div>
                             </div>  
-                            <div class="row mb-2">
+                            <div class="row mt-1">
                                 <div class="col">
                                 </div>
                                 <div class="col">
@@ -137,11 +143,8 @@ $datos = $this->resultado['captchas'];
                         </div>
 
                     </form>
-
                     <hr>
-
                     <div class="row mt-2 mb-3 justify-content-center">
-
                         <div class="col-md-6">
                             <div class="input-group mb-3">
                                 <input type="text"  class="form-control "  value="" id="url_captcha_text">
@@ -152,15 +155,12 @@ $datos = $this->resultado['captchas'];
                                 </div>
                                 <div class="input-group-prepend boder-1 ml-1">
                                    <button  class="btn btn-primary " onclick="verCaptcha('url_captcha')">Ver Capcha</button>
-
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                     <div class="row mt-2 mb-3 justify-content-center">
-
                         <div class="col-md-6">
                             <div class="input-group mb-3">
                                 <div id="alerta" class="alert invisible"></div>
@@ -171,9 +171,8 @@ $datos = $this->resultado['captchas'];
                 </div>
             </div>
         </div>
-
-
-
+    </div>
+</div>
 
 
 <script src="<?php echo constant('URL') ?>public/js/general.js" type="text/javascript"></script>

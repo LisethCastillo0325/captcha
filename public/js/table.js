@@ -40,7 +40,6 @@ var idioma=
 
 $(document).ready(function() {
 
-
     var table = $('#ejemplo').DataTable( {
 
         "paging": true,
@@ -156,4 +155,30 @@ $(document).ready(function() {
     });
 
 
+} );
+
+
+$(document).ready(function() {
+    $('.tabla-detalle-captcha').DataTable( {
+        "paging": true,
+        "lengthChange": true,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "autoWidth": true,
+        "language": idioma
+    });
+} );
+
+$(document).ready(function() {
+    $('.tabla-detalle-ip-captcha').DataTable( {
+        "paging": true,
+        "lengthChange": true,
+        "searching": false,
+        "ordering": true,
+        "info": false,
+        "autoWidth": true,
+        "language": idioma,
+        "lengthMenu": [[5,10,50, -1],[5,10,50,"Mostrar Todo"]],
+    });
 } );

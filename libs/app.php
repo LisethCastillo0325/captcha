@@ -10,7 +10,9 @@ class App{
             $this->manejadorGET();
         }
     }
-
+    /**
+     * Solicitudes tipo api, realizadas desde ajax
+     */
     public function manejadorPOST(){
         $url = isset($_REQUEST['url']) ? $_REQUEST['url']: 'main';
         $url = rtrim($url, "/");

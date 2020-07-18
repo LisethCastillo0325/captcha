@@ -26,10 +26,8 @@ class CaptchaController extends Controller{
     }
 
     public function detalle($id){
-        $resultado = $this->model->obtenerTodosLosCaptchas();
-        $this->view->resultado = $resultado;
-        $this->view->captcha   = $id;
-
+        $captcha = $this->model->obtenerCaptchaPorID($id);
+        $this->view->captcha = $captcha;
         $this->view->render('captcha/detalle');
     }
 

@@ -26,6 +26,7 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <input type="hidden" id="url" value="<?php echo constant('URL') ?>" class="form-control form-control-sm" >
 
                     <?php foreach ($datos as $dato){ ?>
 

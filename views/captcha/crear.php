@@ -138,7 +138,7 @@ $datos = $this->resultado['captchas'];
 
                         <div class="row justify-content-center mt-3">
                             <div class="col-md-4">
-                                <button type="button" class="btn btn-primary btn-block" onclick="generarCaptcha()">Generar Capcha</button>
+                                <button type="button" class="btn btn-primary btn-block" onclick="generarCaptcha()">Generar Captcha</button>
                             </div>
                         </div>
 
@@ -147,14 +147,14 @@ $datos = $this->resultado['captchas'];
                     <div class="row mt-2 mb-3 justify-content-center">
                         <div class="col-md-6">
                             <div class="input-group mb-3">
-                                <input type="text"  class="form-control "  value="" id="url_captcha_text">
-                                <p style="display:block" ></p>
-                                <div id="url_captcha"></div>
+                                <input type="text"  class="form-control "   id="url_captcha_text" readOnly>
                                 <div class="input-group-prepend">
-                                    <button  class="btn btn-primary " onclick="copiarAlPortapapeles()">Copiar Url Capcha</button>
+                                    <button  class="btn btn-primary portapapeles"
+        	                               data-clipboard-target="#url_captcha_text" >Copiar Url Captcha</button>
                                 </div>
                                 <div class="input-group-prepend boder-1 ml-1">
-                                   <button  class="btn btn-primary " onclick="verCaptcha('url_captcha')">Ver Capcha</button>
+                                   <button  class="btn btn-primary " onclick="verCaptcha('url_captcha')">Ver Captcha</button>
+
                                 </div>
                             </div>
                         </div>
@@ -176,6 +176,6 @@ $datos = $this->resultado['captchas'];
 
 
 <script src="<?php echo constant('URL') ?>public/js/general.js" type="text/javascript"></script>
-<script src="<?php echo constant('URL') ?>public/js/copiarTexto.js" type="text/javascript"></script>
-
+<script src="<?php echo constant('URL') ?>public/js/clipboard.min.js"></script>
+<script src="<?php echo constant('URL') ?>public/js/portapapeles.js"></script>
 <?php include 'views/footer.php'; ?>

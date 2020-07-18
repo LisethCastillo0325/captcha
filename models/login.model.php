@@ -19,10 +19,11 @@ class LoginModel extends Model {
         return $this->arrayJson;
     }
 
-    public function existeUsuario($email, $clave){
+    public function existeUsuario($loginusuario, $loginclave){
+       
         foreach ($this->arrayJson['usuarios'] as $key => $usuario) {
-            if((trim($usuario['email']) == trim($email)) && (trim($usuario['clave']) == trim($clave))){
-                return $usuario;
+            if((trim($usuario['usuario']) == trim($loginusuario)) && (trim($usuario['clave']) == trim($loginclave))){
+                return array("usuario" => $usuario['usuario'], "nombre"=>$usuario['nombre']);
             }
         }
         return array();

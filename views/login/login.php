@@ -18,8 +18,8 @@
     </div>
     <!-- Login Form -->
     <form id="frm-login" onsubmit="return validarLogin();" autocomplete="off" >
-      <input type="text" name="email" id="login" class="fadeIn second" placeholder="Email" required>
-      <input type="password" name="password" id="password" class="fadeIn third" placeholder="Contraseña" required>
+      <input type="text" name="usuario" id="usuario" class="fadeIn second" placeholder="Nombre de usuario" required>
+      <input type="password" name="clave" id="clave" class="fadeIn third" placeholder="Contraseña" required>
       <input type="submit" class="fadeIn fourth" value="INICIAR SESIÓN">
     </form>
 

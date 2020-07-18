@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Logo</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
@@ -16,6 +16,7 @@
             </li>
         </ul>
         <input type="hidden" id="url" value="<?=constant('URL')?>" >
+        <input type="hidden" id="urlVercaptcha" value="<?=constant('URL_VERCAPTCHA')?>" >
         <form  id="frm-login" onsubmit="return cerrarSesion();">
             <input type="hidden" name="cerrarsesion" value="cerrarsesion"> 
             <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Cerrar Sesión</button>

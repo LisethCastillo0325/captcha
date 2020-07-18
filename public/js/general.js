@@ -108,7 +108,7 @@ function generarCaptcha(){
 
             resultado = JSON.parse(data);
 
-           var url_captcha= resultado.data.urlCliente + ""+ resultado.data.captcha;
+           var url_captcha = document.getElementById("urlVercaptcha").value + ""+ resultado.data.captcha;
 
             if(resultado){
                 if(! resultado.OK){

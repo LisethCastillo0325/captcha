@@ -1,7 +1,9 @@
 <?php
     require_once 'utils/utils.php';
-    define('NAME_PROJECT','captchamvc'); //nombre del directorio
-    define('URL', Utils::getFullUrl($_SERVER));
-    define('URL_ORIGEN', Utils::getUrlOrigin($_SERVER));
+    define('NOMBRE_PROYECTO_VERCAPTCHA', 'vercaptcha');
+    define('NOMBRE_PROYECTO','admin-captcha'); //nombre del directorio
+    define('URL', Utils::obtenerUrlCompleta($_SERVER));
+    define('URL_ORIGEN', Utils::obtenerUrlOrigen($_SERVER));
+    define('URL_VERCAPTCHA', Utils::obtenerUrlCompletaVercaptcha($_SERVER));
 
 ?>

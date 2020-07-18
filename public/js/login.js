@@ -6,6 +6,7 @@ function validarLogin(){
         data: datosform,
         success: function(data){
            resultado = JSON.parse(data);
+           //console.log(resultado);
            if(resultado){
                 if(! resultado.OK){
                     alerta("error","Error",resultado.mensaje);
@@ -17,7 +18,7 @@ function validarLogin(){
                     }
                 }
            }
-           console.log(resultado);
+           
         },
         error: function(data){
             alerta("error","Error","Problemas al tratar de enviar el formulario");

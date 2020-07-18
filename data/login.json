@@ -1,13 +1,13 @@
 {
    "usuarios": [
         {
-            "usuario": "Juan Lopez",
-            "email": "pruebas@gmail.com",
+            "nombre": "Usuario Pruebas",
+            "usuario": "UPruebas",
             "clave" : "123456"
         },
         {
-            "usuario": "Liseth Castillo",
-            "email": "liseth@gmail.com",
+            "nombre": "Liseth Castillo",
+            "usuario": "LCastillo",
             "clave" : "123456"
         }
     ]

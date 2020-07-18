@@ -7,7 +7,8 @@ class UserSession{
     }
 
     public static function setCurrentUser($user){
-        $_SESSION['usuario'] = $user;
+        $_SESSION['usuario'] = $user['usuario'];
+        $_SESSION['nombre'] = $user['nombre'];
     }
 
     public static function getCurrentUser(){

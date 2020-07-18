@@ -260,7 +260,6 @@ class CaptchaModel extends Model {
                 'fechaCreacion' => $fecha,
                 'cantidadVisitas' => 0,
                 'cantidadPaises' => 0,
-                'urlCliente' => $url_captcha.'/vercaptcha/',
                 'links' => [$idCaptcha['links']],
                 'paisesVisitas' => array()
             );// for recipe

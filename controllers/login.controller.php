@@ -8,9 +8,10 @@ class LoginController extends Controller{
     }
 
     public function validar(){
-        $usuario = $this->model->existeUsuario($_POST['email'], $_POST['password']);
+        
+        $usuario = $this->model->existeUsuario($_POST['usuario'], $_POST['clave']);
         if(count($usuario) > 0){
-            UserSession::setCurrentUser($usuario['usuario']);
+            UserSession::setCurrentUser($usuario);
         }
         return $usuario;
     }

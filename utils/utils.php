@@ -18,7 +18,9 @@ class Utils{
     }
     
     static function getFullUrl($s, $use_forwarded_host=false ) {
-        return self::getUrlOrigin($s, $use_forwarded_host ) .'/'. constant('NAME_PROJECT').'/';
+        $urlScript = explode("index.php", $s['SCRIPT_NAME']);
+        $uri = $urlScript[0];
+        return self::getUrlOrigin($s, $use_forwarded_host ).$uri;
     }
 
 }

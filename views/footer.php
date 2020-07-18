@@ -2,7 +2,7 @@
 
 <footer class="p-2 bg-dark text-white text-center define">
 
-    Pie de pagina | WLA Capchat 2020
+    WLA |  Capchat 2020
 
 </footer>
 

@@ -9,8 +9,6 @@ $datos = $this->resultado['captchas'];
         border-top: none;
     }
 </style>
- 
-
 
         <h3 class="titulo-tabla">Generación de Captcha </h3>
 
@@ -27,7 +25,7 @@ $datos = $this->resultado['captchas'];
                                     <label>Titulo</label>
                                 </div>
                                 <div class="col">
-                                        <input type="text" class="form-control" id="titulo" name="titulo" value="<?php echo $datos['titulo'] ?>" >
+                                        <input type="text" class="form-control" id="titulo" name="titulo"  >
                                 </div>
                                 <div class="col">
                                 </div>
@@ -146,25 +144,39 @@ $datos = $this->resultado['captchas'];
 
                         <div class="col-md-6">
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control "  value="https://localhost/5463-8746-HTDR">
+                                <input type="text"  class="form-control "  value="" id="url_captcha_text">
+                                <p style="display:block" ></p>
+                                <div id="url_captcha"></div>
                                 <div class="input-group-prepend">
-                                    <button type="submit" class="btn btn-primary ">Copiar Url Capcha</button>
+                                    <button  class="btn btn-primary " onclick="copiarAlPortapapeles()">Copiar Url Capcha</button>
                                 </div>
                                 <div class="input-group-prepend boder-1 ml-1">
-                                    <a href="" target="_blank" class="btn btn-primary ">Ver Capcha </a>
+                                   <button  class="btn btn-primary " onclick="verCaptcha('url_captcha')">Ver Capcha</button>
+
                                 </div>
                             </div>
                         </div>
+
+                    </div>
+
+                    <div class="row mt-2 mb-3 justify-content-center">
+
+                        <div class="col-md-6">
+                            <div class="input-group mb-3">
+                                <div id="alerta" class="alert invisible"></div>
+                            </div>
+                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
 
-    
 
 
 
 
 <script src="<?php echo constant('URL') ?>public/js/general.js" type="text/javascript"></script>
+<script src="<?php echo constant('URL') ?>public/js/copiarTexto.js" type="text/javascript"></script>
 
 <?php include 'views/footer.php'; ?>

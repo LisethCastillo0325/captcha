@@ -291,17 +291,15 @@ class CaptchaModel extends Model {
 
     public function modificarCaptcha($idCaptcha){
 
-
         foreach($this->arrayJson['captchas'] as $key => $captcha)
         {
             if($captcha['captcha']==$idCaptcha['captcha'])
             {
                $this->arrayJson['captchas'][$key]['titulo'] = $idCaptcha['titulo'] ;
-               $this->arrayJson['captchas'][$key]['links'] = $idCaptcha['links'];
+               $this->arrayJson['captchas'][$key]['links'] = [$idCaptcha['links']];
             }
         }
-
-        return $idCaptcha;
+        //return $this->arrayJson;
 
         $json_string = json_encode($this->arrayJson);
         $file = "data/data.json";

@@ -28,71 +28,16 @@ function confirmDelete(idcaptcha) {
 }
 
 
-function adiccionarCamposLinkUno() {
-
-    $('#link_1').append('<div class="form-group">\
-                        <input type="text" class="form-control form-control-sm" name="campo[]">\
-                        <a href="#" class="remover_campo">Remover</a>\
-                        </div>');
-    // Remover o div anterior
-    $('#listas').on("click",".remover_campo",function(e) {
-        e.preventDefault();
-        $(this).parent('div').remove();
-        x--;
-    });
-}
-
-function adiccionarCamposLinkDos() {
-
-    var campos_max          = 10;   //max de 10 campos
-
-    var x = 3;
-    $('#add_btn_2').click (function(e) {
-        e.preventDefault();     //prevenir novos clicks
-        if (x < campos_max) {
-            $('#link_2').append('<div class="form-group">\
-                                <input type="text" class="form-control form-control-sm" name="campo[]">\
-                                <a href="#" class="remover_campo">Remover</a>\
-                                </div>');
-            x++;
-        }
-    });
-    // Remover o div anterior
-    $('#listas').on("click",".remover_campo",function(e) {
-        e.preventDefault();
-        $(this).parent('div').remove();
-        x--;
-    });
-}
-
-
-function adiccionarCamposLinkTres() {
-
-    var campos_max          = 10;   //max de 10 campos
-
-    var x = 3;
-    $('#add_btn_3').click (function(e) {
-        e.preventDefault();     //prevenir novos clicks
-        if (x < campos_max) {
-            $('#link_3').append('<div class="form-group">\
-                                <input type="text" class="form-control form-control-sm" name="campo[]">\
-                                <a href="#" class="remover_campo">Remover</a>\
-                                </div>');
-            x++;
-        }
-    });
-    // Remover o div anterior
-    $('#listas').on("click",".remover_campo",function(e) {
-        e.preventDefault();
-        $(this).parent('div').remove();
-        x--;
-    });
-}
 
 function generarCaptcha(){
 
     /*se obtienen los campos identificados por el nombre*/
     var titulo =document.fcaptcha.titulo.value;
+
+    if(titulo =='' || titulo=='undefined'){
+        alerta("error","Error",'Debe ingresar el Título');
+       return true;
+    }
 
     var link_1 =document.fcaptcha.link_1;
     var link_2 =document.fcaptcha.link_2;
@@ -134,12 +79,18 @@ function generarCaptcha(){
         }
     }
 
+
+    if(linkUno =='' && linkDos =='' && linkTres ==''){
+        alerta("error","Error",'Debe ingresar como minimo una Dirección url');
+        return true;
+    }
+
     /*se llena el array principal con la informacion los links*/
-    console.log("link 1",linkUno);
     captcha.links.linkUno  = linkUno;
     captcha.links.linkDos  = linkDos;
     captcha.links.linkTres = linkTres;
-    console.log("captcha 1",captcha);
+
+
 
 
     var url =document.getElementById("url").value;
@@ -151,9 +102,22 @@ function generarCaptcha(){
             idcaptcha: captcha,
         },
         async: true,
-        success: function(respuesta) {
+        success: function(data) {
 
-            console.log(respuesta);
+            resultado = JSON.parse(data);
+
+           var url_captcha= resultado.data.urlCliente + ""+ resultado.data.captcha;
+
+            if(resultado){
+                if(! resultado.OK){
+                    alerta("error","Error",resultado.mensaje);
+                }else{
+                    document.getElementById('url_captcha_text').value = url_captcha;
+                    document.getElementById('url_captcha').value = url_captcha;
+
+                    alerta("success","Registro Generado satisfactoriamente!","");
+                }
+            }
 
         },
         error: function() {
@@ -216,21 +180,21 @@ function modificarCaptcha(){
     var titulo  = document.fcaptcha.titulo.value;
     var captcha = document.fcaptcha.captcha.value;
 
-    var link_1 =document.fcaptcha.link_1.value;
-    var link_2 =document.fcaptcha.link_2;
-    var link_3 =document.fcaptcha.link_3;
+    if(titulo =='' || titulo=='undefined'){
+        alerta("error","Error",'Debe ingresar el Título');
+        return true;
+    }
 
-alert(document.fcaptcha.link_1.length);
     /*se arma el array general*/
 
     var captcha = {
         'titulo' : titulo,
         'captcha' : captcha,
-        'links' : [{
-            'linkUno': "",
-            'linkDos': "",
-            'linkTres':""
-        }]
+        'links' : {
+            'linkUno': [],
+            'linkDos': [],
+            'linkTres':[]
+        }
     }
 
 
@@ -239,26 +203,31 @@ alert(document.fcaptcha.link_1.length);
     var linkDos = [];
     var linkTres = [];
 
-    var i
+    var i=0;
     for (i=0;i<document.fcaptcha.link_1.length;i++){
 
-         alert(document.fcaptcha.link_1[i].value);
-
-        if(document.fcaptcha.link_1[i].value)
-        linkUno.push(document.fcaptcha.link_1[i].value);
+        if(document.fcaptcha.link_1[i].value){
+            linkUno.push(document.fcaptcha.link_1[i].value);
+        }
     }
-
     for (i=0;i<document.fcaptcha.link_2.length;i++){
 
-        if(document.fcaptcha.link_2[i].value)
+        if(document.fcaptcha.link_2[i].value){
             linkDos.push(document.fcaptcha.link_2[i].value);
+        }
     }
     for (i=0;i<document.fcaptcha.link_3.length;i++){
 
-        if(document.fcaptcha.link_3[i].value)
+        if(document.fcaptcha.link_3[i].value){
             linkTres.push(document.fcaptcha.link_3[i].value);
+        }
     }
 
+
+    if(linkUno =='' && linkDos =='' && linkTres ==''){
+        alerta("error","Error",'Debe ingresar como minimo una Dirección url');
+        return true;
+    }
     /*se llena el array principal con la informacion los links*/
 
     captcha.links.linkUno  = linkUno;
@@ -275,13 +244,36 @@ alert(document.fcaptcha.link_1.length);
             idcaptcha: captcha,
         },
         async: true,
-        success: function(respuesta) {
+        success: function(data) {
 
-            console.log(respuesta);
+            resultado = JSON.parse(data);
+            if(resultado){
+                if(! resultado.OK){
+                    alerta("error","Error",resultado.mensaje);
+                }else{
+                    alerta("success","Registro Actualizado satisfactoriamente!","");
+                }
+            }
 
         },
         error: function() {
+            alerta("error","No es posible completar la operación!","");
+
             console.error("No es posible completar la operación");
         }
     });
+}
+
+function alerta(tipo, titulo, mensaje){
+    swal({
+        title: titulo,
+        text: mensaje,
+        type: tipo
+    });
+}
+
+function verCaptcha() {
+    var url_captcha = document.getElementById('url_captcha_text').value;
+
+    window.open (url_captcha);
 }

@@ -1,17 +1,27 @@
 
 <?php include 'views/header.php'; ?>
+<style>
 
+    @font-face {
+        font-family: "texto tabla";
+        src: url("../../public/tipografia/TABLA.ttf");
+    }
 
-<a class="btn btn-outline-secondary mt-3" href="<?php echo constant('URL') ?>captcha/listar"><i class="fa fa-chevron-left" aria-hidden="true"></i> Regresar</a>
+    .texto_tabla1 {
+        font-family: "texto tabla";
+    }
+</style>
+
+<!--<a class="btn btn-outline-secondary mt-3" href="<?php echo constant('URL') ?>captcha/listar"><i class="fa fa-chevron-left" aria-hidden="true"></i> Regresar</a>-->
 
 <div class="card mt-5 mb-5">
     <div class="card-body">
-        <h5 class="card-title">Detalle del Captcha: <?=$this->captcha['captcha'];?></h5>
-        <h6 class="card-subtitle mb-2 text-muted">
+        <h5 class=" texto_tabla1">Detalle del Captcha: <?=$this->captcha['captcha'];?></h5>
+        <h6 class="card-subtitle mb-2 text-muted texto_tabla1">
             Título : <?= $this->captcha['titulo']; ?> | Fecha: <?= $this->captcha['fechaCreacion']; ?>
         </h6>
         <hr class="mb-5">
-        <div class="accordion" id="accordionExample">
+        <div class="accordion texto_tabla1" id="accordionExample">
             <?php
             $id_tabla = 0;
             foreach ($this->captcha['paisesVisitas'] as $datoPais){?>

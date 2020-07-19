@@ -9,10 +9,10 @@
                 <a class="nav-link" href="<?php echo constant('URL') ?>">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo constant('URL') ?>captcha/listar">Listar</a>
+                <a class="nav-link"  href="<?php echo constant('URL') ?>captcha/crear">Crear</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link"  href="<?php echo constant('URL') ?>captcha/crear">Crear</a>
+                <a class="nav-link" href="<?php echo constant('URL') ?>captcha/listar">Tabla</a>
             </li>
         </ul>
         <input type="hidden" id="url" value="<?=constant('URL')?>" >

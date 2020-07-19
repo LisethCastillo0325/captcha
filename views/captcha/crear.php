@@ -3,20 +3,28 @@ $datos = $this->resultado['captchas'];
 
 ?>
 
-</script>
+<!--</script>-->
+
 <style>
+    @font-face {
+        font-family: "texto tabla";
+        src: url("../../public/tipografia/CREAR-CAPTCHA.ttf");
+    }
+
+    .texto_crear {
+        font-family: "texto tabla";
+    }
     .table td {
         border-top: none;
     }
+
 </style>
 
 
-<div class="card mt-5 mb-5 " >
+<div class="card mt-5 mb-5 texto_crear " >
     <div class="card-body ">
-        <h3 class="card-title">Generación de Captcha</h3>
-        <h6 class="card-subtitle mb-2 text-muted">
-            Formulario para crear un nuevo captcha, recuerde ingresar las direcciones URL con los protocolos https:// o http:// 
-        </h6>
+        <h3 class="card-title text-center">Generar Captcha</h3>
+
         <hr class="mb-3">
        
         <div class="row ">
@@ -35,7 +43,17 @@ $datos = $this->resultado['captchas'];
                                 </div>
                                 <div class="col">
                                 </div>
-                            </div>
+                          </div>
+                          <div class="row mb-2">
+                                <div class="col d-flex justify-content-end">
+                                    <label>Url Origen</label>
+                                </div>
+                                <div class="col">
+                                        <input type="text" class="form-control" id="url_origen" placeholder="Url Origen" name="url_origen"  >
+                                </div>
+                                <div class="col">
+                                </div>
+                          </div>
 
                         <div id="dynamic_field_1">
                             <div class="row mb-1">

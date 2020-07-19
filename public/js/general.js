@@ -34,7 +34,8 @@ function confirmDelete(idcaptcha) {
 function generarCaptcha(){
 
     /*se obtienen los campos identificados por el nombre*/
-    var titulo =document.fcaptcha.titulo.value;
+    var titulo     = document.fcaptcha.titulo.value;
+    var url_origen = document.fcaptcha.url_origen.value;
 
     if(titulo =='' || titulo=='undefined'){
         alerta("error","Error",'Debe ingresar el Título');
@@ -49,6 +50,7 @@ function generarCaptcha(){
 
     var captcha = {
         'titulo' : titulo,
+        'url_origen' : url_origen,
         'links' : {
             'linkUno': [],
             'linkDos': [],
@@ -178,8 +180,9 @@ $(document).ready(function(){
 function modificarCaptcha(){
 
     /*se obtienen los campos identificados por el nombre*/
-    var titulo  = document.fcaptcha.titulo.value;
-    var captcha = document.fcaptcha.captcha.value;
+    var titulo     = document.fcaptcha.titulo.value;
+    var captcha    = document.fcaptcha.captcha.value;
+    var url_origen = document.fcaptcha.url_origen.value;
 
     if(titulo =='' || titulo=='undefined'){
         alerta("error","Error",'Debe ingresar el Título');
@@ -191,6 +194,7 @@ function modificarCaptcha(){
     var captcha = {
         'titulo' : titulo,
         'captcha' : captcha,
+        'url_origen' : url_origen,
         'links' : {
             'linkUno': [],
             'linkDos': [],

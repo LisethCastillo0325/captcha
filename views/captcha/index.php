@@ -3,25 +3,36 @@
     include 'views/header.php';
     $datos = $this->resultado['captchas'];
 ?>
+<style>
 
+    @font-face {
+        font-family: "texto tabla";
+        src: url("../../public/tipografia/TABLA.ttf");
+    }
+
+    .texto_tabla1 {
+        font-family: "texto tabla";
+    }
+
+</style>
 <div class="card mt-5 mb-5">
     <div class="card-body">
-        <h3 class="card-title ">Listado  de Captcha Generados</h3>
+        <h3 class=" text-center texto_tabla1">Listado  de Captcha Generados</h3>
         <hr class="mb-3">
         <div class="row">
 
-            <div class="col-12" >
+            <div class="col-12 texto_tabla1" >
                 <div class="table-responsive">
                     <table id="ejemplo" class="table table-striped table-bordered " style="width:100%">
                         <thead>
                         <tr>
-                            <th>Fecha</th>
-                            <th>Título</th>
-                            <th>Captcha</th>
-                            <th>Url Captcha</th>
-                            <th>Cant. Visitas</th>
-                            <th>Cant. Visitas Por País</th>
-                            <th>Acciones</th>
+                            <th class="text-center ">Fecha</th>
+                            <th class="text-center ">Título</th>
+                            <th class="text-center ">Captcha</th>
+                            <th class="text-center ">Url</th>
+                            <th class="text-center ">Visitas</th>
+                            <th class="text-center ">Visitas Por País</th>
+                            <th class="text-center ">Acciones</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -30,17 +41,18 @@
                         <?php foreach ($datos as $dato){ ?>
 
                             <tr>
-                                <td><?php echo $dato['fechaCreacion'];?></td>
+                                <td  style="width:100px;"><?php echo $dato['fechaCreacion'];?></td>
                                 <td><?php echo $dato['titulo'];?></td>
-                                <td><?php echo $dato['captcha'];?></td>
-                                <td><?=constant('URL_VERCAPTCHA').$dato['captcha']?></td>
+                                <td style="width:140px;"><?php echo $dato['captcha'];?></td>
+                                <td><?php echo $dato['urlOrigen'];?></td>
+                                <!--<td><?=constant('URL_VERCAPTCHA').$dato['captcha']?></td>-->
                                 <td class="text-center"><?php echo $dato['cantidadVisitas'];?></td>
                                 <td class="text-center">
-                                    <a href="<?=constant('URL') ?>captcha/detalle/<?=$dato['captcha']?>"   data-toggle="tooltip" title="Ver captcha" class="btn btn-sm btn-default"> <?php echo $dato['cantidadPaises'];?> </a>
+                                    <a href="<?=constant('URL') ?>captcha/detalle/<?=$dato['captcha']?>" target="_blank"  data-toggle="tooltip" title="Ver captcha" class="btn btn-sm btn-default"> <?php echo $dato['cantidadPaises'];?> </a>
                                 </td>
-                                <td>
+                                <td style="width:100px;">
                                     <a href="<?=constant('URL_VERCAPTCHA').$dato['captcha']?>" target="_blank"  data-toggle="tooltip" title="Ver captcha" class="btn btn-sm btn-primary"> <i class="fa fa-eye"></i> </a>
-                                    <a href="<?=constant('URL')?>captcha/editar/<?=$dato['captcha']?>"   data-toggle="tooltip" title="Editar datos" class="btn btn-sm btn-info"> <i class="fa fa-pencil"></i> </a>
+                                    <a href="<?=constant('URL')?>captcha/editar/<?=$dato['captcha']?>"  data-toggle="tooltip" title="Editar datos" class="btn btn-sm btn-info"> <i class="fa fa-pencil"></i> </a>
                                     <a href="#" id="<?=$dato['captcha']?>" onclick="confirmDelete('<?=$dato['captcha']?>')"  class="btn btn-danger btn-sm "><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>

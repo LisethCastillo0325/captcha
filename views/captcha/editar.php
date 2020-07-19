@@ -5,6 +5,14 @@
 
 ?>
     <style>
+        @font-face {
+            font-family: "texto tabla";
+            src: url("../../public/tipografia/CREAR-CAPTCHA.ttf");
+        }
+
+        .texto_crear {
+            font-family: "texto tabla";
+        }
         .table td {
             border-top: none;
         }
@@ -12,12 +20,10 @@
 
 <a class="btn btn-outline-secondary mt-3" href="<?php echo constant('URL') ?>captcha/listar"><i class="fa fa-chevron-left" aria-hidden="true"></i> Regresar</a>
 
-<div class="card mt-5 mb-5 " >
+<div class="card mt-5 mb-5 texto_crear" >
     <div class="card-body ">
-        <h3 class="card-title">Modificar Captcha : <?php echo $datos['captcha'] ?></h3>
-        <h6 class="card-subtitle mb-2 text-muted">
-            Formulario para modificar un captcha, recuerde ingresar las direcciones URL con los protocolos https:// o http:// 
-        </h6>
+        <h3 class="card-title text-center">Modificar Captcha : <?php echo $datos['captcha'] ?></h3>
+
         <hr class="mb-3">
     
         <div class="row justify-content-center">
@@ -34,6 +40,16 @@
                             </div>
                             <div class="col">
                                 <input type="text" class="form-control" id="titulo" name="titulo" value="<?php echo $datos['titulo'] ?>" >
+                            </div>
+                            <div class="col">
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col d-flex justify-content-end">
+                                <label>Url Origen</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="url_origen" name="url_origen" value="<?php echo $datos['urlOrigen'] ?>"  >
                             </div>
                             <div class="col">
                             </div>

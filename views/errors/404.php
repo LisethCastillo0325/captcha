@@ -24,7 +24,7 @@
 <div class="star star3"></div>
 <div class="star star4"></div>
 <div class="star star5"></div>
-
+<br><br><br>
 <div class="error">
   <div class="error__title">404</div>
   <div class="error__subtitle">¡Oops! ¡Algo salió mal!</div>

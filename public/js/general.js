@@ -302,8 +302,25 @@ function alerta(tipo, titulo, mensaje){
     });
 }
 
+function alertaProgressBar(texto, tiempo){
+    // ejemplo: https://sweetalert2.github.io/
+    return Swal.fire({
+        title: texto,
+        timer: tiempo,
+        timerProgressBar: true,
+        onBeforeOpen: function() {
+          Swal.showLoading();
+        }
+    });
+}
+
 function verCaptcha() {
     var url_captcha = document.getElementById('url_captcha_text').value;
-
     window.open (url_captcha);
+}
+
+function refrescarPagina() {
+    alertaProgressBar('Cargando...', 500).then(function(){
+        location.reload();
+    });
 }

@@ -282,8 +282,8 @@ class CaptchaModel extends Model {
 
     public function generarIdCaptcha(){
 
-        $captcha1 = substr(str_shuffle("0123456789"), 0, 4);
-        $captcha2 = substr(str_shuffle("0123456789"), 0, 4);
+        $captcha1 = substr(str_shuffle("123456789"), 0, 4);
+        $captcha2 = substr(str_shuffle("123456789"), 0, 4);
         $captcha3 = substr(str_shuffle("HRXYZWK"), 0, 4);
 
         return $captchaCompleto = $captcha1."-".$captcha2."-".$captcha3;

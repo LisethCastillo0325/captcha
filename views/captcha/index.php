@@ -13,6 +13,8 @@
         font-family: "texto tabla";
     } */
 </style> -->
+<a class="btn btn-success mt-3" href="#" onclick="refrescarPagina()"><i class="fa fa-refresh" aria-hidden="true"></i> Refrescar Pagina</a>
+
 <div class="card mt-5 mb-5">
     <div class="card-body">
         <h3 class=" text-center textoTabla">Listado  de Captcha Generados</h3>
@@ -42,16 +44,18 @@
                                 <td  style="width:100px;"><?php echo $dato['fechaCreacion'];?></td>
                                 <td><?php echo $dato['titulo'];?></td>
                                 <td style="width:140px;"><?php echo $dato['captcha'];?></td>
-                                <td><?php echo $dato['urlOrigen'];?></td>
+                                <td>
+                                    <a href="<?php echo $dato['urlOrigen'];?>" target="_blank"  data-toggle="tooltip" title="Url" class="btn btn-sm btn-default"> <?php echo $dato['urlOrigen'];?> </a>
+                                </td>
                                 <!--<td><?=constant('URL_VERCAPTCHA').$dato['captcha']?></td>-->
                                 <td class="text-center"><?php echo $dato['cantidadVisitas'];?></td>
                                 <td class="text-center">
-                                    <a href="<?=constant('URL') ?>captcha/detalle/<?=$dato['captcha']?>" target="_blank"  data-toggle="tooltip" title="Ver captcha" class="btn btn-sm btn-default"> <?php echo $dato['cantidadPaises'];?> </a>
+                                    <a href="<?=constant('URL') ?>captcha/detalle/<?=$dato['captcha']?>" target="_blank"  data-toggle="tooltip" title="Visitas por país" class="btn btn-sm btn-default"> <?php echo $dato['cantidadPaises'];?> </a>
                                 </td>
                                 <td style="width:100px;">
                                     <a href="<?=constant('URL_VERCAPTCHA').$dato['captcha']?>" target="_blank"  data-toggle="tooltip" title="Ver captcha" class="btn btn-sm btn-primary"> <i class="fa fa-eye"></i> </a>
-                                    <a href="<?=constant('URL')?>captcha/editar/<?=$dato['captcha']?>"  data-toggle="tooltip" title="Editar datos" class="btn btn-sm btn-info"> <i class="fa fa-pencil"></i> </a>
-                                    <a href="#" id="<?=$dato['captcha']?>" onclick="confirmDelete('<?=$dato['captcha']?>')"  class="btn btn-danger btn-sm "><i class="fa fa-trash"></i></a>
+                                    <a href="<?=constant('URL')?>captcha/editar/<?=$dato['captcha']?>"  data-toggle="tooltip" title="Editar captcha" class="btn btn-sm btn-info"> <i class="fa fa-pencil"></i> </a>
+                                    <a href="#" id="<?=$dato['captcha']?>" onclick="confirmDelete('<?=$dato['captcha']?>')" title="Eliminar captcha" class="btn btn-danger btn-sm "><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
 

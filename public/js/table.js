@@ -49,7 +49,7 @@ $(document).ready(function() {
         "info": true,
         "autoWidth": true,
         "language": idioma,
-        "lengthMenu": [[50,100, -1],[50,100,"Mostrar Todo"]],
+        "lengthMenu": [[150,300,500, -1],[150,300,500,"Mostrar Todo"]],
         dom: 'Bfrt<"col-md-6 inline"i> <"col-md-6 inline"p>',
 
 

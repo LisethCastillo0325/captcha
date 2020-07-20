@@ -2,7 +2,7 @@
 
 <footer class="p-2 bg-dark text-white text-center define">
 
-    WLA |  Capchat 2020
+    WLA |  Captcha 2020
 
 </footer>
 

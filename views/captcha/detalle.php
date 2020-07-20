@@ -11,7 +11,8 @@
     }
 </style> -->
 
-<!--<a class="btn btn-outline-secondary mt-3" href="<?php echo constant('URL') ?>captcha/listar"><i class="fa fa-chevron-left" aria-hidden="true"></i> Regresar</a>-->
+<!--<a class="btn btn-outline-secondary mt-3" href="<?php echo constant('URL') ?>captcha/listar"><i class="fa fa-chevron-left" aria-hidden="true"></i> Refrescar pagina</a>-->
+<a class="btn btn-success mt-3" href="" onclick="refrescarPagina()"><i class="fa fa-refresh" aria-hidden="true"></i> Refrescar Pagina</a>
 
 <div class="card mt-5 mb-5">
     <div class="card-body">

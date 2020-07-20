@@ -307,3 +307,7 @@ function verCaptcha() {
 
     window.open (url_captcha);
 }
+
+function refrescarPagina() {
+    location.reload();
+}

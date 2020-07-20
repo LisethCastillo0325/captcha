@@ -13,6 +13,8 @@
         font-family: "texto tabla";
     } */
 </style> -->
+<a class="btn btn-success mt-3" href="" onclick="refrescarPagina()"><i class="fa fa-refresh" aria-hidden="true"></i> Refrescar Pagina</a>
+
 <div class="card mt-5 mb-5">
     <div class="card-body">
         <h3 class=" text-center textoTabla">Listado  de Captcha Generados</h3>
@@ -42,7 +44,9 @@
                                 <td  style="width:100px;"><?php echo $dato['fechaCreacion'];?></td>
                                 <td><?php echo $dato['titulo'];?></td>
                                 <td style="width:140px;"><?php echo $dato['captcha'];?></td>
-                                <td><?php echo $dato['urlOrigen'];?></td>
+                                <td>
+                                    <a href="<?php echo $dato['urlOrigen'];?>" target="_blank"  data-toggle="tooltip" title="Ver captcha" class="btn btn-sm btn-default"> <?php echo $dato['urlOrigen'];?> </a>
+                                </td>
                                 <!--<td><?=constant('URL_VERCAPTCHA').$dato['captcha']?></td>-->
                                 <td class="text-center"><?php echo $dato['cantidadVisitas'];?></td>
                                 <td class="text-center">

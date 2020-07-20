@@ -31,16 +31,23 @@ class CaptchaController extends Controller{
         $this->view->render('captcha/detalle');
     }
 
-    public function ver($id){
-        $captcha = $this->model->obtenerCaptchaPorID($id);
-        if(count($captcha) == 0){
-            new ErrorsController('404');
-        }else{
-            $this->view->captcha = $captcha;
-            $this->view->render('captcha/ver');
-        }
+    public function eliminar($id){
+
+        return $this->model->eliminarCaptcha($id);
     }
 
+    public function generarCaptcha($id){
+
+       return $this->model->generarCaptcha($id);
+    }
+
+    public function modificarCaptcha($id){
+
+       return $this->model->modificarCaptcha($id);
+    }
+
+    /********************** Api ***************************/
+    
     public function apiObtenerCaptcha($id){
         $captcha = $this->model->obtenerCaptchaPorID($id);
         if(count($captcha) == 0){
@@ -50,24 +57,9 @@ class CaptchaController extends Controller{
         }
     }
 
-    public function eliminar($id){
-
-         return $this->model->eliminarCaptcha($id);
-    }
-
     public function apiObtenerJsonCaptcha(){
         return $this->model->obtenerTodosLosCaptchas();
     }
-
-    public function generarCaptcha($id){
-
-        return $this->model->generarCaptcha($id);
-    }
-    public function modificarCaptcha($id){
-
-        return $this->model->modificarCaptcha($id);
-    }
-
 
     public function apiAgregarVisita(){
 

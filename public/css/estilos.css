@@ -19,3 +19,32 @@ footer {
 .define {
     margin:0 auto;
 }
+
+@font-face {
+    font-family: "texto formulario captcha";
+    src: url("../../public/fonts/CREAR-CAPTCHA.ttf");
+}
+
+.textoCrear, .textoCrear input {
+    font-family: "texto formulario captcha" !important;
+}
+
+.textoCrear input::placeholder {
+    font-size: 0.9em;
+    font-family:'Times New Roman';
+}
+
+@font-face {
+    font-family: "texto tabla";
+    src: url("../../public/fonts/TABLA.ttf");
+}
+
+.textoTabla {
+    font-family: "texto tabla";
+}
+
+.table td {
+    border-top: none;
+}
+
+

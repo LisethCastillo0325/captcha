@@ -1,4 +1,6 @@
 <?php
+date_default_timezone_set("America/Panama");
+
 class CaptchaModel extends Model {
 
     public $arrayJson;
@@ -193,7 +195,7 @@ class CaptchaModel extends Model {
     private function obtenerArrayIpVisitas($ip){
         return [
             "ip" => $ip,
-            "fechaVisita" => date('Y-m-d h:m:s')
+            "fechaVisita" => date('d-m-Y h:m:s')
         ];
     }
 
@@ -246,7 +248,7 @@ class CaptchaModel extends Model {
         }
 
 
-        $fecha =  date("Y-m-d");
+        $fecha =  date("d-m-Y");
 
         $url_captcha = constant("URL_ORIGEN");
         $newdata = array();
@@ -260,6 +262,7 @@ class CaptchaModel extends Model {
                 'fechaCreacion' => $fecha,
                 'cantidadVisitas' => 0,
                 'cantidadPaises' => 0,
+                'urlOrigen' => $idCaptcha['url_origen'],
                 'links' => [$idCaptcha['links']],
                 'paisesVisitas' => array()
             );// for recipe
@@ -294,8 +297,9 @@ class CaptchaModel extends Model {
         {
             if($captcha['captcha']==$idCaptcha['captcha'])
             {
-               $this->arrayJson['captchas'][$key]['titulo'] = $idCaptcha['titulo'] ;
-               $this->arrayJson['captchas'][$key]['links'] = [$idCaptcha['links']];
+               $this->arrayJson['captchas'][$key]['titulo']    = $idCaptcha['titulo'] ;
+               $this->arrayJson['captchas'][$key]['urlOrigen'] = $idCaptcha['url_origen'] ;
+               $this->arrayJson['captchas'][$key]['links']     = [$idCaptcha['links']];
             }
         }
         //return $this->arrayJson;

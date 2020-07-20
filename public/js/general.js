@@ -320,7 +320,7 @@ function verCaptcha() {
 }
 
 function refrescarPagina() {
-    alertaProgressBar('Cargando...', 500).then(function(){
+    //alertaProgressBar('Cargando...', 500).then(function(){
         location.reload();
-    });
+    //});
 }

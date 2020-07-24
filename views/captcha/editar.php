@@ -257,6 +257,6 @@
 </div>
 
 
-    <script src="<?php echo constant('URL') ?>public/js/general.js" type="text/javascript"></script>
+
 
 <?php include 'views/footer.php'; ?>

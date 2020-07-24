@@ -189,8 +189,6 @@ $datos = $this->resultado['captchas'];
     </div>
 </div>
 
-
-<script src="<?php echo constant('URL') ?>public/js/general.js" type="text/javascript"></script>
 <script src="<?php echo constant('URL') ?>public/js/clipboard.min.js"></script>
 <script src="<?php echo constant('URL') ?>public/js/portapapeles.js"></script>
 <?php include 'views/footer.php'; ?>

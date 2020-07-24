@@ -1,22 +1,12 @@
 <?php
 class LoginModel extends Model {
 
-    public $arrayJson;
-
+    private $arrayJson;
+    
     function __construct()
     {
         parent::__construct();
-        $this->obtenerJson();
-    }
-
-    public function obtenerJson(){
-        $datos_login = file_get_contents("data/login.json");
-        $json_login = json_decode($datos_login, true);
-        $this->arrayJson = $json_login;
-    }
-
-    public function obtenerArray(){
-        return $this->arrayJson;
+        $this->arrayJson = $this->obtenerJson("data/login.json");
     }
 
     public function existeUsuario($loginusuario, $loginclave){

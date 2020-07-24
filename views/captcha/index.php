@@ -3,17 +3,13 @@
     include 'views/header.php';
     $datos = $this->resultado['captchas'];
 ?>
-<!-- <style>
-    /* @font-face {
-        font-family: "texto tabla";
-        src: url("../../public/fonts/TABLA.ttf");
-    }
 
-    .textoTabla {
-        font-family: "texto tabla";
-    } */
-</style> -->
-<a class="btn btn-success mt-3" href="#" onclick="refrescarPagina()"><i class="fa fa-refresh" aria-hidden="true"></i> Refrescar Pagina</a>
+<div class="row  mt-3">
+    <div class="col">
+        <a class="btn btn-success" href="#" onclick="refrescarPagina()"><i class="fa fa-refresh" aria-hidden="true"></i> Refrescar Pagina</a>
+    </div>
+    
+</div>
 
 <div class="card mt-5 mb-5">
     <div class="card-body">
@@ -80,6 +76,5 @@
 
     </div>
 </div>
-<script src="<?php echo constant('URL') ?>public/js/general.js" type="text/javascript"></script>
 
 <?php include 'views/footer.php'; ?>

@@ -324,3 +324,34 @@ function refrescarPagina() {
         location.reload();
     //});
 }
+
+function modificarIpapi(){
+    var url = document.getElementById("url").value;
+    var id = document.getElementById("ipapi").value;
+    console.log('id: ', id);
+    
+    $.ajax({
+        type: 'POST',
+        url: url+"ipapi/api-modificar-seleccion-ipapi/",
+        data : {
+            id: id,
+        },
+        async: true,
+        success: function(data) {
+            
+            resultado = JSON.parse(data);
+            console.log(resultado);
+            if(resultado){
+                if(! resultado.OK){
+                    alerta("error","Error",resultado.mensaje);
+                }else{
+                    alerta("success","Api actualizada satisfactoriamente!","");
+                }
+            }
+        },
+        error: function() {
+            alerta("error","No es posible completar la operación!","");
+        }
+    });
+
+}

@@ -3,29 +3,22 @@ date_default_timezone_set("America/Panama");
 
 class CaptchaModel extends Model {
 
-    public $arrayJson;
+    private $_arrayJsonCaptchas;
     private $fileJson;
 
     function __construct()
     {
         parent::__construct();
-        //
         $this->fileJson = "data/data.json";
-        $this->obtenerJson();
+        $this->_arrayJsonCaptchas = $this->obtenerJson($this->fileJson);
     }
 
-    public function obtenerJson(){
-
-        $datos_captcha = file_get_contents($this->fileJson);
-        $json_captcha = json_decode($datos_captcha, true);
-
-        $this->arrayJson = $json_captcha;
-    }
+  
     /**
      * @return array
      */
     public function obtenerTodosLosCaptchas(){
-      return  $this->arrayJson;
+      return  $this->_arrayJsonCaptchas;
     }
 
     /**
@@ -34,7 +27,7 @@ class CaptchaModel extends Model {
      * @return array
      */
     public function obtenerCaptchaPorID($id){
-        foreach ($this->arrayJson['captchas'] as $key => $captcha) {
+        foreach ($this->_arrayJsonCaptchas['captchas'] as $key => $captcha) {
             if($captcha['captcha'] === $id){
                 return $captcha;
             }
@@ -43,7 +36,7 @@ class CaptchaModel extends Model {
     } 
 
     public function obtenerCaptchaPosicionPorID($id){
-        foreach ($this->arrayJson['captchas'] as $key => $captcha) {
+        foreach ($this->_arrayJsonCaptchas['captchas'] as $key => $captcha) {
             if($captcha['captcha'] === $id){
                 return array("index"=>$key, "captcha"=>$captcha);
             }
@@ -58,18 +51,18 @@ class CaptchaModel extends Model {
 
     public function eliminarCaptcha($idCaptcha){
 
-        foreach($this->arrayJson['captchas'] as $key => $captcha)
+        foreach($this->_arrayJsonCaptchas['captchas'] as $key => $captcha)
         {
             if($captcha['captcha']==$idCaptcha)
             {
-              unset($this->arrayJson['captchas'][$key]);
+              unset($this->_arrayJsonCaptchas['captchas'][$key]);
             }
         }
 
-        $this->actulizarDataJson($this->arrayJson);
+        $this->actulizarDataJson($this->_arrayJsonCaptchas, $this->fileJson);
     }
 
-    public function apiAgregarVisita($_captcha, $_pais, $_region, $_ciudad, $_ip){
+    public function apiAgregarVisita($_captcha, $_pais, $_departamento, $_ciudad, $_ip){
 
         $arrayTotalCaptchas = $this->obtenerTodosLosCaptchas();
         $datosCaptcha = $this->obtenerCaptchaPosicionPorID($_captcha);
@@ -82,7 +75,7 @@ class CaptchaModel extends Model {
         $existePaisIndex = $this->existePaisEnCaptcha($captcha, $_pais);
         if($existePaisIndex >= 0){
             // si existe el pais, validar si existe la region
-            $existeRegionIndex = $this->existeRegionEnCaptcha($captcha, $_region, $existePaisIndex);
+            $existeRegionIndex = $this->existeRegionEnCaptcha($captcha, $_departamento, $existePaisIndex);
             if($existeRegionIndex >= 0){
                 // si exite la region, validar si exite la ciudad
                 $existeCiudadIndex = $this->existeCiudadEnCaptcha($captcha, $_ciudad, $existeRegionIndex, $existePaisIndex);
@@ -98,11 +91,11 @@ class CaptchaModel extends Model {
                 }
             }else{
                 // agregar nueva region
-                $paises[$existePaisIndex]['regiones'][] = $this->obtenerArrayRegion($_region, $_ciudad, $_ip);
+                $paises[$existePaisIndex]['regiones'][] = $this->obtenerArrayRegion($_departamento, $_ciudad, $_ip);
             }
         }else{
             // agregar nuevo pais
-            $paises[] = $this->obtenerArrayPais($_pais, $_region, $_ciudad, $_ip);
+            $paises[] = $this->obtenerArrayPais($_pais, $_departamento, $_ciudad, $_ip);
             $captcha['cantidadPaises'] += 1;
         }
         // actualizar el captcha con la nueva informacion 
@@ -110,7 +103,7 @@ class CaptchaModel extends Model {
         $captcha['paisesVisitas'] = $paises;
         $arrayTotalCaptchas['captchas'][$indexCa] = $captcha;
 
-        $this->actulizarDataJson($arrayTotalCaptchas);
+        $this->actulizarDataJson($arrayTotalCaptchas, $this->fileJson);
         
         return $arrayTotalCaptchas['captchas'][$indexCa];
     }
@@ -134,16 +127,16 @@ class CaptchaModel extends Model {
 
     /**
      * @param array $captcha
-     * @param string $_region
+     * @param string $_departamento
      * @return int
      */
-    public function existeRegionEnCaptcha($captcha, $_region, $paisIndex=-1){
+    public function existeRegionEnCaptcha($captcha, $_departamento, $paisIndex=-1){
         $paises  = $captcha['paisesVisitas'];
         $existeRegionIndex = -1;
 
         if($paisIndex >= 0){
             foreach ($paises[$paisIndex]['regiones'] as $key => $value) {
-                if( strtolower(trim($value['nombreRegion'])) === strtolower($_region)){
+                if( strtolower(trim($value['nombreRegion'])) === strtolower($_departamento)){
                     $existeRegionIndex = $key;
                     break;
                 }
@@ -151,7 +144,7 @@ class CaptchaModel extends Model {
         }else{
             foreach ($paises as $key1 => $valuePais) {
                 foreach ($valuePais['regiones'] as $key2 => $value) {
-                    if( strtolower(trim($value['nombreRegion'])) === strtolower($_region)){
+                    if( strtolower(trim($value['nombreRegion'])) === strtolower($_departamento)){
                         $existeRegionIndex = $key2;
                         break;
                     }
@@ -227,11 +220,6 @@ class CaptchaModel extends Model {
         ];
     }
 
-    public function actulizarDataJson($arrayJson){
-        $json_string = json_encode($arrayJson);
-        file_put_contents($this->fileJson, $json_string);
-    }
-
     public function generarCaptcha($idCaptcha){
 
         $flag = false;
@@ -241,7 +229,7 @@ class CaptchaModel extends Model {
 
         while ($x<$num) {
             $nuevoCaptcha = $this->generarIdCaptcha();
-            if (!in_array($nuevoCaptcha,$this->arrayJson['captchas'])) {
+            if (!in_array($nuevoCaptcha,$this->_arrayJsonCaptchas['captchas'])) {
                 $flag = true;
                 $x++;
             }
@@ -268,12 +256,12 @@ class CaptchaModel extends Model {
             );// for recipe
            // return "ingrese controlados---".$idCaptcha."----".$newdata;
 
-            $this->arrayJson['captchas'][] = $newdata;
+            $this->_arrayJsonCaptchas['captchas'][] = $newdata;
 
         }
 
 
-        $json_string = json_encode($this->arrayJson);
+        $json_string = json_encode($this->_arrayJsonCaptchas);
         $file = "data/data.json";
         file_put_contents($file, $json_string);
 
@@ -293,23 +281,19 @@ class CaptchaModel extends Model {
 
     public function modificarCaptcha($idCaptcha){
 
-        foreach($this->arrayJson['captchas'] as $key => $captcha)
+        foreach($this->_arrayJsonCaptchas['captchas'] as $key => $captcha)
         {
             if($captcha['captcha']==$idCaptcha['captcha'])
             {
-               $this->arrayJson['captchas'][$key]['titulo']    = $idCaptcha['titulo'] ;
-               $this->arrayJson['captchas'][$key]['urlOrigen'] = $idCaptcha['url_origen'] ;
-               $this->arrayJson['captchas'][$key]['links']     = [$idCaptcha['links']];
+               $this->_arrayJsonCaptchas['captchas'][$key]['titulo']    = $idCaptcha['titulo'] ;
+               $this->_arrayJsonCaptchas['captchas'][$key]['urlOrigen'] = $idCaptcha['url_origen'] ;
+               $this->_arrayJsonCaptchas['captchas'][$key]['links']     = [$idCaptcha['links']];
             }
         }
-        //return $this->arrayJson;
-
-        $json_string = json_encode($this->arrayJson);
-        $file = "data/data.json";
-        file_put_contents($file, $json_string);
-
+        //return $this->_arrayJsonCaptchas;
+        $this->actulizarDataJson($this->_arrayJsonCaptchas, $this->fileJson);
         return "Registro Actualizado Satisfactoriamente";
-    }
+    } 
 }
 
 

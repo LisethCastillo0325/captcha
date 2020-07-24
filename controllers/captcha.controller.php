@@ -65,11 +65,11 @@ class CaptchaController extends Controller{
 
         $_captcha = trim($_POST['captcha']);
         $_pais    = trim($_POST['pais']);
-        $_region  = trim($_POST['region']);
+        $_dpto    = trim($_POST['dpto']);
         $_ciudad  = trim($_POST['ciudad']);
         $_ip      = trim($_POST['ip']);
 
-        return $this->model->apiAgregarVisita($_captcha, $_pais, $_region, $_ciudad, $_ip);
+        return $this->model->apiAgregarVisita($_captcha, $_pais, $_dpto, $_ciudad, $_ip);
     }
 
 }

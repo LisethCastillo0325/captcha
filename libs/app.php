@@ -21,19 +21,19 @@ class App{
         $archivoController = 'controllers/'.$nombreController.'.php';
 
         if(! file_exists($archivoController) ){
-            echo json_encode(array('OK'=>false, 'mensaje'=>'recurso no encontrado', 'data'=>null, 'error' => 404));
+            echo json_encode(array('OK'=>false, 'mensaje'=>'recurso no encontrado 1', 'data'=>null, 'error' => 404));
         }else{
             require_once($archivoController);
             $nombreController = str_replace(" ", "", ucwords(str_replace(".", " ", $nombreController)));
             $nombreFunction   = lcfirst(str_replace(" ", "", ucwords(str_replace("-"," ", $url[1]))));
             $controller       = new $nombreController();
-
+          
             if(! ($controller instanceof MainController)  && !isset($nombreFunction)) {
-                echo json_encode(array('OK'=>false, 'mensaje'=>'recurso no encontrado', 'data'=>null, 'error' => 404));
+                echo json_encode(array('OK'=>false, 'mensaje'=>'recurso no encontrado 2', 'data'=>null, 'error' => 404));
             }else{
                 if(isset($nombreFunction)){
                     if(! method_exists($controller, $nombreFunction)){
-                        echo json_encode(array('OK'=>false, 'mensaje'=>'recurso no encontrado', 'data'=>null, 'error' => 404));
+                        echo json_encode(array('OK'=>false, 'mensaje'=>'recurso no encontrado 3', 'data'=>null, 'error' => 404));
                     }else{
                         
                         if(isset($_REQUEST['idcaptcha']) ){

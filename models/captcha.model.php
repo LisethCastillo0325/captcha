@@ -188,7 +188,7 @@ class CaptchaModel extends Model {
     private function obtenerArrayIpVisitas($ip){
         return [
             "ip" => $ip,
-            "fechaVisita" => date('d-m-Y h:m:s')
+            "fechaVisita" => date('d-m-Y h:i:s')
         ];
     }
 
